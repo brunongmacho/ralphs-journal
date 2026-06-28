@@ -136,6 +136,40 @@ body {
   text-align: center;
 }
 
+.nav-links {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.nav-prev, .nav-next {
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  color: #2E75B6;
+  text-decoration: none;
+  max-width: 40%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.nav-prev:hover, .nav-next:hover {
+  text-decoration: underline;
+}
+
+.nav-toc {
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  color: #999999;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.nav-toc:hover {
+  color: #2E75B6;
+}
+
 .nav-bar a {
   font-family: Arial, sans-serif;
   font-size: 14px;
