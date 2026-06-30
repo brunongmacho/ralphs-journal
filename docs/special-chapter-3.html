@@ -7,11 +7,17 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="page">
-    <div class="content">
-<div class="page-header">Ralph's Journal — Special Chapter 3</div>
+  <div class="reading-progress" id="readingProgress"></div>
+
+  <button class="dark-toggle" id="darkToggle" aria-label="Toggle dark mode">&#9728;&#65039;</button>
+
+  <div class="entry-page">
+    <a href="index.html" class="entry-back">&larr; Back to Journal</a>
+    <div class="entry-content">
+<div class="entry-page-header">Ralph's Journal — Special Chapter 3</div>
+  <p class="entry-meta">3 min read</p>
   <h1 class="chapter-title">Tomorrow Started Speaking</h1>
-  <div class="decorative-line">₊‧.°.⋆•</div>
+  <div class="decorative-line">&#8346;&#183;.&#176;.&#9734;&bull;</div>
   <p>Nobody ever announces the moment they begin believing in forever.</p>
   <p>It happens in smaller ways.</p>
   <p>You stop saying &quot;if.&quot;</p>
@@ -22,7 +28,7 @@
   <p>When we're together.</p>
   <p>It slips into conversation so naturally that you don't even realize your language has changed.</p>
   <p>One day, tomorrow quietly starts speaking as though it already knows your name.</p>
-  <div class="divider">✦</div>
+  <div class="divider">&#10022;</div>
   <p>I don't remember who first mentioned apartments.</p>
   <p>I only remember that after the first time, we never really stopped.</p>
   <p>The conversations became surprisingly practical.</p>
@@ -37,7 +43,7 @@
   <p>Looking back now, I think that's what made those conversations beautiful.</p>
   <p>They weren't about escaping reality.</p>
   <p>They were about building one.</p>
-  <div class="divider">✦</div>
+  <div class="divider">&#10022;</div>
   <p>There was one thing I noticed about myself during those days.</p>
   <p>I started planning differently.</p>
   <p>Before meeting Elaine, most of my plans ended with me.</p>
@@ -56,7 +62,7 @@
   <p>How much should I save?</p>
   <p>It wasn't that my own dreams disappeared.</p>
   <p>They simply stopped ending with only me.</p>
-  <div class="divider">✦</div>
+  <div class="divider">&#10022;</div>
   <p>Some people might think that's dangerous.</p>
   <p>Maybe it is.</p>
   <p>Maybe that's exactly why heartbreak hurts.</p>
@@ -64,7 +70,7 @@
   <p>You wake up one morning and realize you've already been making decisions for two people.</p>
   <p>Sometimes for five.</p>
   <p>Without noticing the exact day it happened.</p>
-  <div class="divider">✦</div>
+  <div class="divider">&#10022;</div>
   <p>One of the conversations that stayed with me wasn't about marriage.</p>
   <p>It wasn't about rings.</p>
   <p>It wasn't even about us.</p>
@@ -82,7 +88,7 @@
   <p>There's a difference.</p>
   <p>The first creates pressure.</p>
   <p>The second creates purpose.</p>
-  <div class="divider">✦</div>
+  <div class="divider">&#10022;</div>
   <p>Looking back now, I don't think I fell in love with the future itself.</p>
   <p>I fell in love with the person I was becoming while imagining it.</p>
   <p>More patient.</p>
@@ -90,7 +96,7 @@
   <p>Less afraid of commitment than I'd spent years pretending to be.</p>
   <p>Elaine didn't change who I was.</p>
   <p>She revealed parts of me that had been waiting for the right reason to exist.</p>
-  <div class="divider">✦</div>
+  <div class="divider">&#10022;</div>
   <p>Sometimes people ask whether those dreams were real.</p>
   <p>I think that's the wrong question.</p>
   <p>Dreams don't become fake simply because they don't happen.</p>
@@ -102,7 +108,7 @@
   <p>Not a lie.</p>
   <p>Not an illusion.</p>
   <p>Just a road that reached its ending sooner than either of us expected.</p>
-  <div class="divider">✦</div>
+  <div class="divider">&#10022;</div>
   <p>Do I still think about those plans?</p>
   <p>Sometimes.</p>
   <p>Less often than before.</p>
@@ -115,7 +121,7 @@
   <p>And maybe that's enough.</p>
   <p>Not every tomorrow is meant to arrive.</p>
   <p>Some exist only to teach us that we're capable of dreaming again.</p>
-  <div class="divider">✦</div>
+  <div class="divider">&#10022;</div>
   <p>If there's one thing those conversations gave me, it wasn't an apartment.</p>
   <p>It wasn't a ring.</p>
   <p>It wasn't the life we imagined.</p>
@@ -128,19 +134,59 @@
   <p>It just needed someone to ask what tomorrow looked like.</p>
   <p>And for a little while...</p>
   <p>I had an answer.</p>
-  <div class="divider">✦</div>
+  <div class="divider">&#10022;</div>
   <p>— Ralph.</p>
-  <div class="decorative-line closing">₊‧.°.⋆•</div>
+  <div class="decorative-line closing">&#8346;&#183;.&#176;.&#9734;&bull;</div>
 
     </div>
     <div class="page-footer">Ralph's Journal</div>
   </div>
-  <nav class="nav-bar">
-    <div class="nav-links">
-      <a href="special-chapter-2.html" class="nav-prev">← The Shape of Home</a>
-      <a href="index.html" class="nav-toc">Table of Contents</a>
-      <a href="special-chapter-4.html" class="nav-next">The Little Things I'll Never Forget →</a>
+
+  <nav class="entry-nav">
+    <div class="entry-nav-links">
+      <a href="special-chapter-2.html" class="entry-nav-prev">&larr; The Shape of Home</a>
+      <a href="index.html" class="entry-nav-toc">Table of Contents</a>
+      <a href="special-chapter-4.html" class="entry-nav-next">The Little Things I'll Never Forget &rarr;</a>
     </div>
   </nav>
+
+  <script>
+    // ─── Dark Mode ───
+    (function() {
+      const toggle = document.getElementById('darkToggle');
+      const saved = localStorage.getItem('journal-theme');
+      if (saved !== 'light') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        toggle.textContent = '☀️';
+      }
+      toggle.addEventListener('click', function() {
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        if (isDark) {
+          document.documentElement.removeAttribute('data-theme');
+          localStorage.setItem('journal-theme', 'light');
+          toggle.textContent = '🌙';
+        } else {
+          document.documentElement.setAttribute('data-theme', 'dark');
+          localStorage.setItem('journal-theme', 'dark');
+          toggle.textContent = '☀️';
+        }
+      });
+    })();
+
+    // ─── Reading Progress ───
+    (function() {
+      const bar = document.getElementById('readingProgress');
+      if (bar) {
+        window.addEventListener('scroll', function() {
+          const scrollTop = window.scrollY;
+          const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+          if (docHeight > 0) {
+            const progress = Math.min(scrollTop / docHeight * 100, 100);
+            bar.style.width = progress + '%';
+          }
+        });
+      }
+    })();
+  </script>
 </body>
 </html>

@@ -29,6 +29,8 @@ const JOURNALS = [
   { file: "SpecialChapter6_Elaine", title: "The Last Conversation", date: "2026-06-28" },
   { file: "SpecialChapter7_Elaine", title: "Thank You, Elaine", date: "2026-06-28" },
   { file: "Journal_Day6.0_2026-06-29", title: "The Day Everything Is Ordinary" },
+  { file: "Journal_Day6.5_2026-06-29", title: "The Day She Answered" },
+  { file: "Journal_Day7_2026-06-30", title: "The Day Forward Felt Natural" },
 ];
 
 function parseDate(file, entry) {

@@ -7,12 +7,18 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="page">
-    <div class="content">
-<div class="page-header">Introduction</div>
+  <div class="reading-progress" id="readingProgress"></div>
+
+  <button class="dark-toggle" id="darkToggle" aria-label="Toggle dark mode">&#9728;&#65039;</button>
+
+  <div class="entry-page">
+    <a href="index.html" class="entry-back">&larr; Back to Journal</a>
+    <div class="entry-content">
+<div class="entry-page-header">Introduction</div>
+  <p class="entry-meta">3 min read</p>
   <h1 class="entry-title">To My Future Self</h1>
   <h2 class="section-heading">To My Future Self</h2>
-  <div class="divider">✦</div>
+  <div class="divider">&#10022;</div>
   <p>I don't know where you're reading this.</p>
   <p>Maybe you're in a different room. Maybe you're in a different city. Maybe life looks nothing like what I'm looking at right now. I don't know. That's the thing about futures — you don't get to see them coming.</p>
   <p>But I know one thing. If you're reading this, it means I kept going. It means the days kept passing, and I kept showing up for them, and I wrote it down so you wouldn't have to guess.</p>
@@ -30,18 +36,58 @@
   <p>For the version of yourself who refused to stop.</p>
   <p>He didn't know where he was going. He only knew he had to keep taking the next step.</p>
   <p>And somehow, that was enough.</p>
-  <div class="divider">✦</div>
+  <div class="divider">&#10022;</div>
   <p><em>— Ralph, June 2026</em></p>
 
     </div>
     <div class="page-footer">Ralph's Journal</div>
   </div>
-  <nav class="nav-bar">
-    <div class="nav-links">
+
+  <nav class="entry-nav">
+    <div class="entry-nav-links">
       <span></span>
-      <a href="index.html" class="nav-toc">Table of Contents</a>
-      <a href="day-1.html" class="nav-next">The Day I Started Building Again →</a>
+      <a href="index.html" class="entry-nav-toc">Table of Contents</a>
+      <a href="day-1.html" class="entry-nav-next">The Day I Started Building Again &rarr;</a>
     </div>
   </nav>
+
+  <script>
+    // ─── Dark Mode ───
+    (function() {
+      const toggle = document.getElementById('darkToggle');
+      const saved = localStorage.getItem('journal-theme');
+      if (saved !== 'light') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        toggle.textContent = '☀️';
+      }
+      toggle.addEventListener('click', function() {
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        if (isDark) {
+          document.documentElement.removeAttribute('data-theme');
+          localStorage.setItem('journal-theme', 'light');
+          toggle.textContent = '🌙';
+        } else {
+          document.documentElement.setAttribute('data-theme', 'dark');
+          localStorage.setItem('journal-theme', 'dark');
+          toggle.textContent = '☀️';
+        }
+      });
+    })();
+
+    // ─── Reading Progress ───
+    (function() {
+      const bar = document.getElementById('readingProgress');
+      if (bar) {
+        window.addEventListener('scroll', function() {
+          const scrollTop = window.scrollY;
+          const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+          if (docHeight > 0) {
+            const progress = Math.min(scrollTop / docHeight * 100, 100);
+            bar.style.width = progress + '%';
+          }
+        });
+      }
+    })();
+  </script>
 </body>
 </html>

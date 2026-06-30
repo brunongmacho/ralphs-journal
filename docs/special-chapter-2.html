@@ -7,11 +7,17 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="page">
-    <div class="content">
-<div class="page-header">Ralph's Journal — Special Chapter 2</div>
+  <div class="reading-progress" id="readingProgress"></div>
+
+  <button class="dark-toggle" id="darkToggle" aria-label="Toggle dark mode">&#9728;&#65039;</button>
+
+  <div class="entry-page">
+    <a href="index.html" class="entry-back">&larr; Back to Journal</a>
+    <div class="entry-content">
+<div class="entry-page-header">Ralph's Journal — Special Chapter 2</div>
+  <p class="entry-meta">3 min read</p>
   <h1 class="chapter-title">The Shape of Home</h1>
-  <div class="decorative-line">₊‧.°.⋆•</div>
+  <div class="decorative-line">&#8346;&#183;.&#176;.&#9734;&bull;</div>
   <p>People often imagine that love announces itself.</p>
   <p>A grand confession.</p>
   <p>A perfect first date.</p>
@@ -24,7 +30,7 @@
   <p>Like sunrise.</p>
   <p>You don't notice the exact second darkness becomes morning.</p>
   <p>One day, you simply realize the room is bright.</p>
-  <div class="divider">✦</div>
+  <div class="divider">&#10022;</div>
   <p>Somewhere along the way, I stopped checking my phone because I was bored.</p>
   <p>I started checking it because I wondered how her day was going.</p>
   <p>Sometimes she'd send a random picture.</p>
@@ -40,7 +46,7 @@
   <p>Even ordinary errands became stories worth telling.</p>
   <p>Not because they were interesting.</p>
   <p>Because she made me feel like they were.</p>
-  <div class="divider">✦</div>
+  <div class="divider">&#10022;</div>
   <p>One thing I loved about Elaine was that she never tried to pretend life was perfectly organized.</p>
   <p>Life interrupted our conversations all the time.</p>
   <p>A child needed attention.</p>
@@ -60,7 +66,7 @@
   <p>Comfortable.</p>
   <p>Uncomplicated.</p>
   <p>Human.</p>
-  <div class="divider">✦</div>
+  <div class="divider">&#10022;</div>
   <p>The children were never an obstacle.</p>
   <p>They were never something I had to &quot;accept.&quot;</p>
   <p>People asked me about that more than once.</p>
@@ -82,7 +88,7 @@
   <p>A home that sounded alive.</p>
   <p>Maybe that dream says more about me than it ever did about her.</p>
   <p>And maybe that's okay.</p>
-  <div class="divider">✦</div>
+  <div class="divider">&#10022;</div>
   <p>There was something peaceful about the way we planned.</p>
   <p>Neither of us treated the future like a fantasy.</p>
   <p>We talked about apartments the same way people talk about grocery lists.</p>
@@ -96,7 +102,7 @@
   <p>They felt like possibilities.</p>
   <p>And possibilities have a strange power.</p>
   <p>They make tomorrow feel close enough to touch.</p>
-  <div class="divider">✦</div>
+  <div class="divider">&#10022;</div>
   <p>I think that's why these memories remain so gentle inside me.</p>
   <p>When I open our conversations now, I don't see two people trying to impress each other.</p>
   <p>I see two people slowly becoming part of each other's routines.</p>
@@ -105,19 +111,59 @@
   <p>Not the kind that fills a room.</p>
   <p>The kind that quietly becomes part of everyday life until one day you realize...</p>
   <p>it already feels like home.</p>
-  <div class="divider">✦</div>
+  <div class="divider">&#10022;</div>
   <p>— Ralph.</p>
-  <div class="decorative-line closing">₊‧.°.⋆•</div>
+  <div class="decorative-line closing">&#8346;&#183;.&#176;.&#9734;&bull;</div>
 
     </div>
     <div class="page-footer">Ralph's Journal</div>
   </div>
-  <nav class="nav-bar">
-    <div class="nav-links">
-      <a href="special-chapter-1.html" class="nav-prev">← Fifteen Days That Were Never Small</a>
-      <a href="index.html" class="nav-toc">Table of Contents</a>
-      <a href="special-chapter-3.html" class="nav-next">Tomorrow Started Speaking →</a>
+
+  <nav class="entry-nav">
+    <div class="entry-nav-links">
+      <a href="special-chapter-1.html" class="entry-nav-prev">&larr; Fifteen Days That Were Never Small</a>
+      <a href="index.html" class="entry-nav-toc">Table of Contents</a>
+      <a href="special-chapter-3.html" class="entry-nav-next">Tomorrow Started Speaking &rarr;</a>
     </div>
   </nav>
+
+  <script>
+    // ─── Dark Mode ───
+    (function() {
+      const toggle = document.getElementById('darkToggle');
+      const saved = localStorage.getItem('journal-theme');
+      if (saved !== 'light') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        toggle.textContent = '☀️';
+      }
+      toggle.addEventListener('click', function() {
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        if (isDark) {
+          document.documentElement.removeAttribute('data-theme');
+          localStorage.setItem('journal-theme', 'light');
+          toggle.textContent = '🌙';
+        } else {
+          document.documentElement.setAttribute('data-theme', 'dark');
+          localStorage.setItem('journal-theme', 'dark');
+          toggle.textContent = '☀️';
+        }
+      });
+    })();
+
+    // ─── Reading Progress ───
+    (function() {
+      const bar = document.getElementById('readingProgress');
+      if (bar) {
+        window.addEventListener('scroll', function() {
+          const scrollTop = window.scrollY;
+          const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+          if (docHeight > 0) {
+            const progress = Math.min(scrollTop / docHeight * 100, 100);
+            bar.style.width = progress + '%';
+          }
+        });
+      }
+    })();
+  </script>
 </body>
 </html>

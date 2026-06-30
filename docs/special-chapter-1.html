@@ -7,11 +7,17 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="page">
-    <div class="content">
-<div class="page-header">Ralph's Journal — Special Chapter 1</div>
+  <div class="reading-progress" id="readingProgress"></div>
+
+  <button class="dark-toggle" id="darkToggle" aria-label="Toggle dark mode">&#9728;&#65039;</button>
+
+  <div class="entry-page">
+    <a href="index.html" class="entry-back">&larr; Back to Journal</a>
+    <div class="entry-content">
+<div class="entry-page-header">Ralph's Journal — Special Chapter 1</div>
+  <p class="entry-meta">4 min read</p>
   <h1 class="chapter-title">Fifteen Days That Were Never Small</h1>
-  <div class="decorative-line">₊‧.°.⋆•</div>
+  <div class="decorative-line">&#8346;&#183;.&#176;.&#9734;&bull;</div>
   <p>Some people measure love in years.</p>
   <p>We measured ours in ordinary days.</p>
   <p>Fifteen of them.</p>
@@ -26,7 +32,7 @@
   <p>So let me tell you our story instead.</p>
   <p>Not because it lasted.</p>
   <p>Because it mattered.</p>
-  <div class="divider">✦</div>
+  <div class="divider">&#10022;</div>
   <p>We didn't begin with fireworks.</p>
   <p>We began with replies.</p>
   <p>One message became another.</p>
@@ -45,7 +51,7 @@
   <p>Easy.</p>
   <p>Comfortable.</p>
   <p>Like meeting someone who made it feel safe to simply be myself.</p>
-  <div class="divider">✦</div>
+  <div class="divider">&#10022;</div>
   <p>Some people fall in love because of grand moments.</p>
   <p>I fell in love because of ordinary ones.</p>
   <p>The way she'd tell me about her day.</p>
@@ -59,7 +65,7 @@
   <p>Blessings.</p>
   <p>That's the word I used.</p>
   <p>And I meant it.</p>
-  <div class="divider">✦</div>
+  <div class="divider">&#10022;</div>
   <p>Somewhere between the jokes and the coffee, we started talking about things that sounded dangerously permanent.</p>
   <p>Apartments.</p>
   <p>Separate rooms for the kids.</p>
@@ -76,7 +82,7 @@
   <p>Not because I lost an apartment.</p>
   <p>Not because I never bought the ring.</p>
   <p>Because I lost the future I had already started furnishing inside my head.</p>
-  <div class="divider">✦</div>
+  <div class="divider">&#10022;</div>
   <p>People sometimes ask me what I miss most.</p>
   <p>They assume it's the relationship.</p>
   <p>It isn't.</p>
@@ -92,7 +98,7 @@
   <p>There was something so pure about being accepted by a child who owed me nothing.</p>
   <p>I don't know if I'll ever experience that exact feeling again.</p>
   <p>But I know I'll spend the rest of my life hoping I do.</p>
-  <div class="divider">✦</div>
+  <div class="divider">&#10022;</div>
   <p>If this chapter had ended with &quot;happily ever after,&quot; it would've been easier to write.</p>
   <p>It didn't.</p>
   <p>It ended with silence.</p>
@@ -105,7 +111,7 @@
   <p>Instead, I've started accepting my own.</p>
   <p>Because sometimes healing isn't finding the missing page.</p>
   <p>Sometimes it's learning to continue reading even without it.</p>
-  <div class="divider">✦</div>
+  <div class="divider">&#10022;</div>
   <p>People have asked me if I regret those fifteen days.</p>
   <p>I don't.</p>
   <p>If someone offered me the chance to erase them to avoid the pain that followed, I'd refuse.</p>
@@ -117,7 +123,7 @@
   <p>They showed me the kind of partner I wanted to become.</p>
   <p>And maybe...</p>
   <p>that's enough.</p>
-  <div class="divider">✦</div>
+  <div class="divider">&#10022;</div>
   <p>Years from now, I probably won't remember every message.</p>
   <p>I won't remember every joke.</p>
   <p>I won't remember whether something happened on Facebook or Discord.</p>
@@ -133,19 +139,59 @@
   <p>And I think that's something worth carrying with me for the rest of my life.</p>
   <p>Some people measure love in years.</p>
   <p>I still measure ours in fifteen unforgettable days.</p>
-  <div class="divider">✦</div>
+  <div class="divider">&#10022;</div>
   <p>— Ralph.</p>
-  <div class="decorative-line closing">₊‧.°.⋆•</div>
+  <div class="decorative-line closing">&#8346;&#183;.&#176;.&#9734;&bull;</div>
 
     </div>
     <div class="page-footer">Ralph's Journal</div>
   </div>
-  <nav class="nav-bar">
-    <div class="nav-links">
-      <a href="day-5-5.html" class="nav-prev">← The Day I Opened the Archive</a>
-      <a href="index.html" class="nav-toc">Table of Contents</a>
-      <a href="special-chapter-2.html" class="nav-next">The Shape of Home →</a>
+
+  <nav class="entry-nav">
+    <div class="entry-nav-links">
+      <a href="day-5-5.html" class="entry-nav-prev">&larr; The Day I Opened the Archive</a>
+      <a href="index.html" class="entry-nav-toc">Table of Contents</a>
+      <a href="special-chapter-2.html" class="entry-nav-next">The Shape of Home &rarr;</a>
     </div>
   </nav>
+
+  <script>
+    // ─── Dark Mode ───
+    (function() {
+      const toggle = document.getElementById('darkToggle');
+      const saved = localStorage.getItem('journal-theme');
+      if (saved !== 'light') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        toggle.textContent = '☀️';
+      }
+      toggle.addEventListener('click', function() {
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        if (isDark) {
+          document.documentElement.removeAttribute('data-theme');
+          localStorage.setItem('journal-theme', 'light');
+          toggle.textContent = '🌙';
+        } else {
+          document.documentElement.setAttribute('data-theme', 'dark');
+          localStorage.setItem('journal-theme', 'dark');
+          toggle.textContent = '☀️';
+        }
+      });
+    })();
+
+    // ─── Reading Progress ───
+    (function() {
+      const bar = document.getElementById('readingProgress');
+      if (bar) {
+        window.addEventListener('scroll', function() {
+          const scrollTop = window.scrollY;
+          const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+          if (docHeight > 0) {
+            const progress = Math.min(scrollTop / docHeight * 100, 100);
+            bar.style.width = progress + '%';
+          }
+        });
+      }
+    })();
+  </script>
 </body>
 </html>

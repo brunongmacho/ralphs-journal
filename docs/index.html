@@ -7,104 +7,235 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="index-page">
-    <h1 class="index-title">Ralph's Journal</h1>
-    <p class="index-subtitle">Fifteen Days That Were Never Small</p>
-    <p class="index-description">A personal journal about heartbreak, healing, ordinary mornings, and finding the long way home.</p>
+  <button class="dark-toggle" id="darkToggle" aria-label="Toggle dark mode">&#9728;&#65039;</button>
 
-    <div class="intro-section">
-      <span class="intro-icon">📖</span>
-      <div class="intro-content">
-        <span class="intro-label">Begin Here</span>
-        <a href="introduction.html" class="intro-link">To My Future Self</a>
+  <nav class="float-nav" id="floatNav">
+    <a href="#top" class="float-nav-item">Top</a>
+    <div class="float-nav-divider"></div>
+    <button class="float-nav-year-toggle" data-year="2026" aria-label="Toggle 2026 months">26</button>
+    <div class="float-nav-months" id="months-2026">
+      <a href="#month-2026-06" class="float-nav-month">JUN</a>
+    </div>
+
+    <div class="float-nav-divider"></div>
+    <button class="float-nav-hide" id="floatNavHide">Hide</button>
+  </nav>
+  <button class="float-nav-mini" id="floatNavMini">&#9776;</button>
+
+  <div class="journal" id="top">
+    <header class="journal-header">
+      <h1 class="journal-title">Ralph's Journal</h1>
+      <p class="journal-subtitle">Fifteen Days That Were Never Small</p>
+      <p class="journal-desc">A personal journal about heartbreak, healing, ordinary mornings, and finding the long way home.</p>
+    </header>
+
+    <div class="begin-section">
+      <span class="begin-icon">&#128214;</span>
+      <div class="begin-content">
+        <span class="begin-label">Begin Here</span>
+        <a href="introduction.html" class="begin-link">To My Future Self</a>
       </div>
     </div>
 
-    <h2 class="index-section-title">Journal</h2>
-    <h3 class="week-title">Week One</h3>
-    
-    <div class="date-group">
-      <p class="date-heading">Wednesday • June 24, 2026</p>
-      <ul class="index-list">
-        <li><a href="day-1.html">The Day I Started Building Again</a></li>
-      </ul>
+    <section class="year-section" id="year-2026">
+  <h2 class="month-title" id="month-2026-06">June 2026</h2>
+    <blockquote class="month-epigraph">June began with a question I couldn't answer: Can I survive this?
+It ended with a different one: What's for lunch?
+I think that's progress.</blockquote>
+  <div class="week-section">
+    <p class="week-label">Week One</p>
+    <div class="day-group">
+      <p class="day-group-date">Wednesday • June 24, 2026</p>
+      <ul class="day-list">
+        <li><a href="day-1.html"><span class="entry-label">Day 1</span>The Day I Started Building Again</a></li>      </ul>
     </div>
-    <div class="date-group">
-      <p class="date-heading">Thursday • June 25, 2026</p>
-      <ul class="index-list">
-        <li><a href="day-2.html">The Day the Wave Came Back</a></li>
-      </ul>
+    <div class="day-group">
+      <p class="day-group-date">Thursday • June 25, 2026</p>
+      <ul class="day-list">
+        <li><a href="day-2.html"><span class="entry-label">Day 2</span>The Day the Wave Came Back</a></li>      </ul>
     </div>
-    <div class="date-group">
-      <p class="date-heading">Friday • June 26, 2026</p>
-      <ul class="index-list">
-        <li><a href="day-3-0.html">The Day Everything Happened at Once</a></li>
-        <li><a href="day-3-5.html">The Day the Weight Became Lighter</a></li>
-      </ul>
+    <div class="day-group">
+      <p class="day-group-date">Friday • June 26, 2026</p>
+      <ul class="day-list">
+        <li><a href="day-3-0.html"><span class="entry-label">Day 3.0</span>The Day Everything Happened at Once</a></li>
+        <li><a href="day-3-5.html"><span class="entry-label">Day 3.5</span>The Day the Weight Became Lighter</a></li>      </ul>
     </div>
-    <div class="date-group">
-      <p class="date-heading">Saturday • June 27, 2026</p>
-      <ul class="index-list">
-        <li><a href="day-4-0.html">The Morning the Sun Reached Me</a></li>
-        <li><a href="day-4-5.html">The Day Teddybear Came Back</a></li>
-      </ul>
+    <div class="day-group">
+      <p class="day-group-date">Saturday • June 27, 2026</p>
+      <ul class="day-list">
+        <li><a href="day-4-0.html"><span class="entry-label">Day 4.0</span>The Morning the Sun Reached Me</a></li>
+        <li><a href="day-4-5.html"><span class="entry-label">Day 4.5</span>The Day Teddybear Came Back</a></li>      </ul>
     </div>
-    <div class="date-group">
-      <p class="date-heading">Sunday • June 28, 2026</p>
-      <ul class="index-list">
-        <li><a href="day-5-0.html">The Morning I Finally Slept</a></li>
-        <li><a href="day-5-5.html">The Day I Opened the Archive</a></li>
+    <div class="day-group">
+      <p class="day-group-date">Sunday • June 28, 2026</p>
+      <ul class="day-list">
+        <li><a href="day-5-0.html"><span class="entry-label">Day 5.0</span>The Morning I Finally Slept</a></li>
+        <li><a href="day-5-5.html"><span class="entry-label">Day 5.5</span>The Day I Opened the Archive</a></li>
       </ul>
-    </div>
-
-    <h2 class="index-section-title">Special Chapters</h2>
-    <p class="section-subdesc">A chapter dedicated to someone who became part of my story.</p>
-    <div class="date-group">
-      <ul class="index-list">
-          <li><a href="special-chapter-1.html">Fifteen Days That Were Never Small</a></li>
-          <li><a href="special-chapter-2.html">The Shape of Home</a></li>
-          <li><a href="special-chapter-3.html">Tomorrow Started Speaking</a></li>
-          <li><a href="special-chapter-4.html">The Little Things I'll Never Forget</a></li>
-          <li><a href="special-chapter-5.html">The Silence Between Replies</a></li>
-          <li><a href="special-chapter-6.html">The Last Conversation</a></li>
-          <li><a href="special-chapter-7.html">Thank You, Elaine</a></li>
-      </ul>
-    </div>
-
-    <h2 class="index-section-title">Chapter Two</h2>
-    
-    <div class="date-group">
-      <p class="date-heading">Monday • June 29, 2026</p>
-      <ul class="index-list">
-        <li><a href="day-6-0.html">The Day Everything Is Ordinary</a></li>
-        <li><a href="day-6-5.html">The Day She Answered</a></li>
-      </ul>
-    </div>
-    <div class="date-group">
-      <p class="date-heading">Tuesday • June 30, 2026</p>
-      <ul class="index-list">
-        <li><a href="day-7.html">The Day Forward Felt Natural</a></li>
-      </ul>
-    </div>
-
-    <div class="about-section">
-      <h3 class="about-title">✍ About This Journal</h3>
-      <blockquote class="about-quote">
-        &ldquo;This journal began as a way to survive a heartbreak.
-        Somewhere along the way, it became a record of a life finding its way back to itself.
-        These pages are not written to ask anyone to return.
-        They are written so I never forget who I became.&rdquo;
-      </blockquote>
-      <p class="about-attribution">&mdash; Ralph</p>
     </div>
   </div>
-
-  <div class="index-footer">
-    <blockquote class="footer-quote">
-      &ldquo;I started writing because I didn&rsquo;t know what else to do with the weight I was carrying.
-      I kept writing because I realized I was slowly carrying less of it.&rdquo;
-    </blockquote>
-    <p class="footer-attribution">&mdash; Ralph</p>
+  <div class="week-section special">
+    <p class="week-label">Special Chapters</p>
+    <ul class="special-list">
+      <li><a href="special-chapter-1.html">Fifteen Days That Were Never Small</a></li>
+      <li><a href="special-chapter-2.html">The Shape of Home</a></li>
+      <li><a href="special-chapter-3.html">Tomorrow Started Speaking</a></li>
+      <li><a href="special-chapter-4.html">The Little Things I'll Never Forget</a></li>
+      <li><a href="special-chapter-5.html">The Silence Between Replies</a></li>
+      <li><a href="special-chapter-6.html">The Last Conversation</a></li>
+      <li><a href="special-chapter-7.html">Thank You, Elaine</a></li>
+    </ul>
   </div>
+  <div class="week-section">
+    <p class="week-label">Week Two</p>
+    <div class="day-group">
+      <p class="day-group-date">Monday • June 29, 2026</p>
+      <ul class="day-list">
+        <li><a href="day-6-0.html"><span class="entry-label">Day 6.0</span>The Day Everything Is Ordinary</a></li>
+        <li><a href="day-6-5.html"><span class="entry-label">Day 6.5</span>The Day She Answered</a></li>      </ul>
+    </div>
+    <div class="day-group">
+      <p class="day-group-date">Tuesday • June 30, 2026</p>
+      <ul class="day-list">
+        <li><a href="day-7.html"><span class="entry-label">Day 7</span>The Day Forward Felt Natural</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+  </div>
+
+  <footer class="journal-footer">
+    <hr class="footer-line">
+    <p class="footer-text">This journal began as somewhere to put the weight I was carrying.</p>
+    <p class="footer-text">If parts of it felt familiar, I hope you find your way home too.</p>
+    <p style="margin-top: 12px;" class="footer-text">&mdash; Ralph</p>
+  </footer>
+
+  <script>
+    // ─── Dark Mode ───
+    (function() {
+      const toggle = document.getElementById('darkToggle');
+      const saved = localStorage.getItem('journal-theme');
+      if (saved !== 'light') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        toggle.textContent = '☀️';
+      }
+      toggle.addEventListener('click', function() {
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        if (isDark) {
+          document.documentElement.removeAttribute('data-theme');
+          localStorage.setItem('journal-theme', 'light');
+          toggle.textContent = '🌙';
+        } else {
+          document.documentElement.setAttribute('data-theme', 'dark');
+          localStorage.setItem('journal-theme', 'dark');
+          toggle.textContent = '☀️';
+        }
+      });
+    })();
+
+    // ─── Floating Nav ───
+    (function() {
+      var nav = document.getElementById('floatNav');
+      var mini = document.getElementById('floatNavMini');
+      var hideBtn = document.getElementById('floatNavHide');
+
+      hideBtn.addEventListener('click', function() {
+        nav.classList.add('hidden');
+        mini.classList.add('visible');
+      });
+
+      mini.addEventListener('click', function() {
+        nav.classList.remove('hidden');
+        mini.classList.remove('visible');
+      });
+
+      // Year toggle — accordion: manual click toggles; auto-expand handled by Observer
+      var toggles = document.querySelectorAll('.float-nav-year-toggle');
+      toggles.forEach(function(toggle) {
+        var year = toggle.getAttribute('data-year');
+        var months = document.getElementById('months-' + year);
+        toggle.addEventListener('click', function() {
+          var isCurrentlyExpanded = toggle.classList.contains('expanded');
+          // Collapse all years
+          toggles.forEach(function(t) { t.classList.remove('expanded'); });
+          var allMonths = document.querySelectorAll('.float-nav-months');
+          allMonths.forEach(function(m) { m.classList.remove('expanded'); });
+          // Expand only the clicked one if it was collapsed
+          if (!isCurrentlyExpanded) {
+            toggle.classList.add('expanded');
+            if (months) months.classList.add('expanded');
+          }
+        });
+      });
+
+      // Scroll-based active year + month — reliable, no observer timing issues
+      var yearSections = document.querySelectorAll('.year-section');
+      var monthHeadings = document.querySelectorAll('[id^="month-"]');
+      var navItems = document.querySelectorAll('.float-nav-item');
+      var yearToggles = document.querySelectorAll('.float-nav-year-toggle');
+      var monthLinks = document.querySelectorAll('.float-nav-month');
+
+      function updateNavSpy() {
+        // Find closest month heading to viewport top
+        if (monthHeadings.length > 0 && monthLinks.length > 0) {
+          var bestMonth = null;
+          var bestDist = Infinity;
+          for (var i = 0; i < monthHeadings.length; i++) {
+            var h = monthHeadings[i];
+            var rect = h.getBoundingClientRect();
+            var dist = Math.abs(rect.top);
+            if (dist < bestDist) {
+              bestDist = dist;
+              bestMonth = h;
+            }
+          }
+          if (bestMonth) {
+            var targetHref = '#' + bestMonth.id;
+            monthLinks.forEach(function(link) {
+              link.classList.toggle('active', link.getAttribute('href') === targetHref);
+            });
+          }
+        }
+
+        // Find closest year section to viewport top → auto-expand + highlight
+        if (yearSections.length > 0) {
+          var bestYearSection = null;
+          var bestYearDist = Infinity;
+          for (var i = 0; i < yearSections.length; i++) {
+            var s = yearSections[i];
+            var rect = s.getBoundingClientRect();
+            var dist = Math.abs(rect.top);
+            if (dist < bestYearDist) {
+              bestYearDist = dist;
+              bestYearSection = s;
+            }
+          }
+          if (bestYearSection) {
+            var id = bestYearSection.id;
+            navItems.forEach(function(item) {
+              item.classList.toggle('active', item.getAttribute('href') === '#' + id);
+            });
+            var activeYear = id.replace('year-', '');
+            yearToggles.forEach(function(t) {
+              var isActiveYear = t.getAttribute('data-year') === activeYear;
+              t.classList.toggle('active', isActiveYear);
+              var monthsEl = document.getElementById('months-' + t.getAttribute('data-year'));
+              if (isActiveYear) {
+                t.classList.add('expanded');
+                if (monthsEl) monthsEl.classList.add('expanded');
+              } else {
+                t.classList.remove('expanded');
+                if (monthsEl) monthsEl.classList.remove('expanded');
+              }
+            });
+          }
+        }
+      }
+      window.addEventListener('scroll', updateNavSpy);
+      updateNavSpy();
+    })();
+  </script>
 </body>
 </html>
