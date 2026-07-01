@@ -27,6 +27,7 @@ const FONT = "Georgia, 'Times New Roman', serif";
 // ─── Journal Entries ──────────────────────────────────────
 const JOURNALS = [
   { file: "Introduction", title: "To My Future Self" },
+  { file: "SpecialChapter0", title: "To My Future Someone" },
   { file: "Journal_Day1_2026-06-24", title: "The Day I Started Building Again" },
   { file: "Journal_Day2_2026-06-25", title: "The Day the Wave Came Back" },
   { file: "Journal_Day3.0_2026-06-26", title: "The Day Everything Happened at Once" },
@@ -50,6 +51,7 @@ const JOURNALS = [
 // ─── Helpers ──────────────────────────────────────────────
 function slug(file) {
   if (file === "Introduction") return "introduction";
+  if (file === "SpecialChapter0") return "to-my-future-someone";
   if (file.startsWith("SpecialChapter")) {
     const m = file.match(/SpecialChapter(\d+)/);
     return `special-chapter-${m[1]}`;
@@ -105,6 +107,7 @@ function readingTime(text) {
 
 function getLabel(file) {
   if (file === "Introduction") return { header: "Introduction", short: "Introduction" };
+  if (file === "SpecialChapter0") return { header: "To My Future Someone", short: "to-my-future-someone" };
   if (file.startsWith("SpecialChapter")) {
     const m = file.match(/SpecialChapter(\d+)/);
     const num = m ? m[1] : "";
@@ -167,8 +170,9 @@ function renderInline(text) {
 function parseMD(content) {
   const lines = content.split("\n").map(l => l.replace(/\r$/, ""));
   let bodyStart = 0;
-  for (let i = 0; i < Math.min(5, lines.length); i++) {
-    if (lines[i].startsWith("# ") || lines[i].startsWith("## ") || lines[i].startsWith("### ")) {
+  for (let i = 0; i < Math.min(10, lines.length); i++) {
+    const trimmed = lines[i].trim();
+    if (trimmed === "" || trimmed.startsWith("#")) {
       bodyStart = i + 1;
     } else break;
   }
@@ -186,7 +190,7 @@ function parseMD(content) {
 function groupEntriesByMonth(entries) {
   const groups = {};
   for (const entry of entries) {
-    if (entry.file === "Introduction") continue;
+    if (entry.file === "Introduction" || entry.file === "SpecialChapter0") continue;
     const key = getMonthKey(entry.file, entry);
     if (!key) continue;
     if (!groups[key]) groups[key] = [];
@@ -342,6 +346,18 @@ body {
   background: var(--hover);
 }
 
+.prelude-section {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px;
+  margin-bottom: 48px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--blockquote-bg);
+  transition: all 0.2s;
+}
+
 .begin-icon {
   font-size: 28px;
   line-height: 1;
@@ -351,8 +367,9 @@ body {
 .begin-content {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 6px;
 }
+
 
 .begin-label {
   font-family: Georgia, serif;
@@ -373,6 +390,8 @@ body {
 .begin-link:hover {
   color: var(--blue);
 }
+
+
 
 /* ─── Months ─── */
 .year-section {
@@ -1098,6 +1117,7 @@ function generateIndex(entries) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ralph's Journal</title>
+  <script>(function(){try{var t=localStorage.getItem('journal-theme');if(t!=='light'){document.documentElement.setAttribute('data-theme','dark')}}catch(e){document.documentElement.setAttribute('data-theme','dark')}})();</script>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -1122,6 +1142,14 @@ function generateIndex(entries) {
       <div class="begin-content">
         <span class="begin-label">Begin Here</span>
         <a href="introduction.html" class="begin-link">${escapeHTML(introEntry.title)}</a>
+      </div>
+    </div>
+
+    <div class="prelude-section">
+      <span class="begin-icon">&#10022;</span>
+      <div class="begin-content">
+        <span class="begin-label">Before the Story Began</span>
+        <a href="to-my-future-someone.html" class="begin-link">To My Future Someone</a>
       </div>
     </div>
 
@@ -1268,7 +1296,7 @@ function generateIndex(entries) {
 function renderEntryPage(paragraphs, entry, isSpecial, prevEntry, nextEntry) {
   const { header: label } = getLabel(entry.file);
   const dateLabel = parseDate(entry.file);
-  const headerText = entry.file === "Introduction" ? "Introduction" : `Ralph's Journal — ${label}`;
+  const headerText = entry.file === "Introduction" || entry.file === "SpecialChapter0" ? entry.title : `Ralph's Journal — ${label}`;
   const allText = paragraphs.join(" ");
   const readTime = readingTime(allText);
 
@@ -1292,8 +1320,15 @@ function renderEntryPage(paragraphs, entry, isSpecial, prevEntry, nextEntry) {
 
   let starCount = 0;
   let inHeader = !isSpecial;
+  let skippedOpening = false;
 
   for (const para of paragraphs) {
+    if (!isSpecial && !skippedOpening && (para === "---" || para === "₊‧.°.⋆•")) {
+      body += `  <div class="divider">&#10022;</div>\n`;
+      skippedOpening = true;
+      continue;
+    }
+    if (!isSpecial && para === "₊‧.°.⋆•") continue;
     if (para === "---") {
       body += `  <div class="divider">&#10022;</div>\n`;
       continue;
@@ -1329,6 +1364,7 @@ function renderEntryPage(paragraphs, entry, isSpecial, prevEntry, nextEntry) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>${escapeHTML(entry.title)} — Ralph's Journal</title>
+  <script>(function(){try{var t=localStorage.getItem('journal-theme');if(t!=='light'){document.documentElement.setAttribute('data-theme','dark')}}catch(e){document.documentElement.setAttribute('data-theme','dark')}})();</script>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -1420,7 +1456,7 @@ async function main() {
     const nextEntry = i < JOURNALS.length - 1 ? JOURNALS[i + 1] : null;
     const content = fs.readFileSync(mdPath, "utf-8");
     const paragraphs = parseMD(content);
-    const isSpecial = entry.file.startsWith("SpecialChapter");
+    const isSpecial = entry.file.startsWith("SpecialChapter") && entry.file !== "SpecialChapter0";
     const html = renderEntryPage(paragraphs, entry, isSpecial, prevEntry, nextEntry);
     const s = slug(entry.file);
     fs.writeFileSync(path.join(outDir, `${s}.html`), html);

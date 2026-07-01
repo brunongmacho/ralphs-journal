@@ -13,6 +13,7 @@ const BODY = "333333";
 
 const JOURNALS = [
   { file: "Introduction", title: "To My Future Self" },
+  { file: "SpecialChapter0", title: "To My Future Someone" },
   { file: "Journal_Day1_2026-06-24", title: "The Day I Started Building Again" },
   { file: "Journal_Day2_2026-06-25", title: "The Day the Wave Came Back" },
   { file: "Journal_Day3.0_2026-06-26", title: "The Day Everything Happened at Once" },
@@ -45,7 +46,7 @@ function parseDate(file, entry) {
 }
 
 function getDayLabel(file) {
-  if (file === "Introduction") return "Introduction";
+  if (file === "Introduction" || file === "SpecialChapter0") return "Introduction";
   if (file.startsWith("SpecialChapter")) {
     const m = file.match(/SpecialChapter(\d+)/);
     return m ? `Special Chapter ${m[1]}` : "Special Chapter";
@@ -60,15 +61,10 @@ function parseMD(content, file) {
   const lines = content.split("\n").map(l => l.replace(/\r$/, ""));
   let bodyStart = 0;
 
-  for (let i = 0; i < Math.min(5, lines.length); i++) {
-    if (lines[i].startsWith("# ") || lines[i].startsWith("## ") || lines[i].startsWith("### ")) {
-      bodyStart = i + 1;
-    } else break;
-  }
-
-  // Skip heading lines at the start of the file
-  for (let i = 0; i < Math.min(5, lines.length); i++) {
-    if (lines[i].startsWith("# ") || lines[i].startsWith("## ") || lines[i].startsWith("### ")) {
+  // Skip all heading and blank lines at the start (handles consecutive headings with blanks between)
+  for (let i = 0; i < Math.min(10, lines.length); i++) {
+    const trimmed = lines[i].trim();
+    if (trimmed === "" || trimmed.startsWith("#")) {
       bodyStart = i + 1;
     } else break;
   }
@@ -95,7 +91,7 @@ function parseMD(content, file) {
 
 function buildDoc(paragraphs, file, dateLabel, subtitle) {
   const children = [];
-  const isSpecial = file.startsWith("SpecialChapter");
+  const isSpecial = file.startsWith("SpecialChapter") && file !== "SpecialChapter0";
 
   if (!isSpecial) {
     // Date line
@@ -267,7 +263,7 @@ function buildDoc(paragraphs, file, dateLabel, subtitle) {
             alignment: AlignmentType.CENTER,
             spacing: { after: 200 },
             border: { bottom: { style: BorderStyle.SINGLE, size: 6, color: "CCCCCC", space: 1 } },
-            children: [new TextRun({ text: file === "Introduction" ? "Introduction" : `Ralph's Journal — ${getDayLabel(file)}`, font: "Arial", size: 18, color: GRAY, italics: true })]
+            children: [new TextRun({ text: file === "Introduction" || file === "SpecialChapter0" ? subtitle : `Ralph's Journal — ${getDayLabel(file)}`, font: "Arial", size: 18, color: GRAY, italics: true })]
           })]
         })
       },
