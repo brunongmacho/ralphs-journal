@@ -267,10 +267,17 @@ body {
 @media (max-width: 640px) {
   body { background: var(--body-bg); }
   .journal { padding: 40px 24px 24px; box-shadow: none; min-height: auto; }
+  .prelude-entry { gap: 12px; }
+  .prelude-icon { width: 24px; font-size: 20px; }
+  .prelude-title { font-size: 16px; }
+  .prelude-caption { font-size: 13px; max-width: 100%; }
+  .prelude-sep { margin: 4px 0 20px 0; }
 }
 
 @media (max-width: 400px) {
   .journal { padding: 32px 18px 18px; }
+  .prelude-entry { gap: 10px; flex-direction: column; }
+  .prelude-icon { width: auto; text-align: left; }
 }
 
 /* ─── Dark Mode Toggle ─── */
@@ -330,54 +337,59 @@ body {
 }
 
 /* ─── Begin Here ─── */
-.begin-section {
+.prelude-entry {
   display: flex;
-  align-items: center;
   gap: 16px;
-  padding: 20px;
-  margin-bottom: 48px;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  background: var(--blockquote-bg);
-  transition: all 0.2s;
+  margin-bottom: 24px;
 }
 
-.begin-section:hover {
-  background: var(--hover);
-}
-
-.prelude-section {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  padding: 20px;
-  margin-bottom: 48px;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  background: var(--blockquote-bg);
-  transition: all 0.2s;
-}
-
-.begin-icon {
-  font-size: 28px;
-  line-height: 1;
+.prelude-icon {
+  width: 28px;
+  text-align: center;
+  font-size: 24px;
+  line-height: 1.4;
   flex-shrink: 0;
+  color: var(--gray);
 }
 
-.begin-content {
+.prelude-content {
   display: flex;
   flex-direction: column;
   gap: 6px;
 }
 
-
-.begin-label {
-  font-family: Georgia, serif;
+.prelude-label {
   font-size: 11px;
   color: var(--blue);
   text-transform: uppercase;
   letter-spacing: 1.5px;
   font-weight: bold;
+}
+
+.prelude-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--dark);
+  text-decoration: none;
+}
+
+.prelude-title:hover {
+  color: var(--blue);
+}
+
+.prelude-caption {
+  font-size: 14px;
+  color: var(--gray);
+  line-height: 1.5;
+  margin: 0;
+  max-width: 480px;
+}
+
+.prelude-sep {
+  text-align: center;
+  font-size: 14px;
+  color: var(--border);
+  margin: 8px 0 28px 0;
 }
 
 .begin-link {
@@ -1133,23 +1145,27 @@ function generateIndex(entries) {
   <div class="journal" id="top">
     <header class="journal-header">
       <h1 class="journal-title">Ralph's Journal</h1>
-      <p class="journal-subtitle">Fifteen Days That Were Never Small</p>
-      <p class="journal-desc">A personal journal about heartbreak, healing, ordinary mornings, and finding the long way home.</p>
+      <p class="journal-subtitle">Just Enjoying Ordinary Days</p>
+      <p class="journal-desc">Where ordinary days slowly became enough.</p>
     </header>
 
-    <div class="begin-section">
-      <span class="begin-icon">&#128214;</span>
-      <div class="begin-content">
-        <span class="begin-label">Begin Here</span>
-        <a href="introduction.html" class="begin-link">${escapeHTML(introEntry.title)}</a>
+    <div class="prelude-entry">
+      <span class="prelude-icon">&#128214;</span>
+      <div class="prelude-content">
+        <span class="prelude-label">Begin Here</span>
+        <a href="introduction.html" class="prelude-title">${escapeHTML(introEntry.title)}</a>
+        <p class="prelude-caption">The first promise I made to myself&mdash;the reason this journal exists.</p>
       </div>
     </div>
 
-    <div class="prelude-section">
-      <span class="begin-icon">&#10022;</span>
-      <div class="begin-content">
-        <span class="begin-label">Before the Story Began</span>
-        <a href="to-my-future-someone.html" class="begin-link">To My Future Someone</a>
+    <div class="prelude-sep">&#10022;</div>
+
+    <div class="prelude-entry">
+      <span class="prelude-icon">&#10022;</span>
+      <div class="prelude-content">
+        <span class="prelude-label">Before the Story Began</span>
+        <a href="to-my-future-someone.html" class="prelude-title">To My Future Someone</a>
+        <p class="prelude-caption">Written for someone I hadn't met yet, but already hoped would understand where I came from.</p>
       </div>
     </div>
 
