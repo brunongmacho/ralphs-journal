@@ -2,7 +2,7 @@
 ## June 29, 2026
 ### The Day Everything Is Ordinary
 
-₊‧.°.⋆•
+---
 
 This morning felt ordinary.
 

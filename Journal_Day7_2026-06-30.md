@@ -2,7 +2,7 @@
 ## June 30, 2026
 ### The Day Forward Felt Natural
 
-₊‧.°.⋆•
+---
 
 I didn't notice when Day 6.5 turned into Day 7.
 

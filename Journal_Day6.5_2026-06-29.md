@@ -2,7 +2,7 @@
 ## June 29, 2026
 ### The Day She Answered
 
-₊‧.°.⋆•
+---
 
 After I finished editing the journal website, I joined Discord voice again to watch more Dota 2.
 
@@ -299,6 +299,8 @@ I forgot to measure it today.
 I think I was too busy living.
 
 ### Songs of Day 6.5
+
+None today. My thoughts were louder than any playlist.
 
 ✦
 

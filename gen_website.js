@@ -1399,7 +1399,7 @@ ${body}
   <nav class="entry-nav">
     <div class="entry-nav-links">
       ${prevEntry ? `<a href="${slug(prevEntry.file)}.html" class="entry-nav-prev">&larr; ${escapeHTML(prevEntry.title)}</a>` : `<span></span>`}
-      <a href="index.html" class="entry-nav-toc">Table of Contents</a>
+      <a href="index.html" class="entry-nav-toc">&larr; Back to Journal</a>
       ${nextEntry ? `<a href="${slug(nextEntry.file)}.html" class="entry-nav-next">${escapeHTML(nextEntry.title)} &rarr;</a>` : `<span></span>`}
     </div>
   </nav>
