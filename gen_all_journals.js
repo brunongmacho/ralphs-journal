@@ -32,6 +32,7 @@ const JOURNALS = [
   { file: "Journal_Day6.0_2026-06-29", title: "The Day Everything Is Ordinary" },
   { file: "Journal_Day6.5_2026-06-29", title: "The Day She Answered" },
   { file: "Journal_Day7_2026-06-30", title: "The Day Forward Felt Natural" },
+  { file: "Journal_Day8_2026-07-01", title: "The Tomorrow I Thought Would Never Come" },
 ];
 
 function parseDate(file, entry) {

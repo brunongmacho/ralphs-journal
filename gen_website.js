@@ -4,7 +4,8 @@ const path = require("path");
 // ─── Config ───────────────────────────────────────────────
 // Month epigraphs — edit freely as months evolve
 const MONTH_EPIGRAPHS = {
-  "2026-06": "June began with a question I couldn't answer: Can I survive this?\nIt ended with a different one: What's for lunch?\nI think that's progress."
+  "2026-06": "June began with a question I couldn't answer: Can I survive this?\nIt ended with a different one: What's for lunch?\nI think that's progress.",
+  "2026-07": "I'm beginning to enjoy not knowing what tomorrow will write."
 };
 
 // Week groupings per month
@@ -18,6 +19,9 @@ const MONTH_WEEKS = {
     { label: "Week One", filter: e => e.file.startsWith("Journal") && getDayNum(e.file) <= 5 },
     { label: "Special Chapters", filter: e => e.file.startsWith("SpecialChapter") },
     { label: "Week Two", filter: e => e.file.startsWith("Journal") && getDayNum(e.file) >= 6 },
+  ],
+  "2026-07": [
+    { label: "Week One", filter: e => e.file.startsWith("Journal") }
   ]
 };
 
@@ -46,6 +50,7 @@ const JOURNALS = [
   { file: "Journal_Day6.0_2026-06-29", title: "The Day Everything Is Ordinary" },
   { file: "Journal_Day6.5_2026-06-29", title: "The Day She Answered" },
   { file: "Journal_Day7_2026-06-30", title: "The Day Forward Felt Natural" },
+  { file: "Journal_Day8_2026-07-01", title: "The Tomorrow I Thought Would Never Come" },
 ];
 
 // ─── Helpers ──────────────────────────────────────────────
