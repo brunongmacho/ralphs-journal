@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The People Who Stayed — Ralph's Journal</title>
+  <script>(function(){try{var t=localStorage.getItem('journal-theme');if(t!=='light'){document.documentElement.setAttribute('data-theme','dark')}}catch(e){document.documentElement.setAttribute('data-theme','dark')}})();</script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="reading-progress" id="readingProgress"></div>
+
+  <button class="dark-toggle" id="darkToggle" aria-label="Toggle dark mode">&#9728;&#65039;</button>
+
+  <div class="entry-page">
+    <a href="index.html" class="entry-back">&larr; Back to Journal</a>
+    <div class="entry-content">
+<div class="entry-page-header">Ralph's Journal — Special Chapter 9</div>
+  <p class="entry-meta">2 min read</p>
+  <h1 class="chapter-title">The People Who Stayed</h1>
+  <div class="decorative-line">&#8346;&#183;.&#176;.&#9734;&bull;</div>
+  <p>I don't think I would have made it through that week if I had to do it alone.</p>
+  <p>And for a while, I thought I was alone. That's what grief does — it makes the world feel smaller than it is. It convinces you that everyone else has moved on with their lives while you're still stuck in the same moment, replaying the same thoughts, waiting for something to change.</p>
+  <p>But that wasn't true.</p>
+  <p>I just couldn't see it yet.</p>
+  <div class="divider">&#10022;</div>
+  <p>Some of you checked in on me. Not to ask for details, but to make sure I was still okay. A simple &quot;kamusta&quot; that landed harder than you probably knew. You didn't need to have the right words. You just needed to show up. And you did.</p>
+  <p>Some of you invited me to play. You didn't treat me like I was fragile. You treated me like I was still just Ralph — someone worth laughing with, someone worth streaming Dota for, someone worth sending stupid memes to. You made me feel normal when I had forgotten what normal felt like.</p>
+  <p>Some of you didn't say anything at all. And somehow, that helped too. You were just there. In the server. In the group chat. In the background of my life, quietly existing, reminding me that the world hadn't stopped just because mine had.</p>
+  <div class="divider">&#10022;</div>
+  <p>I don't remember every conversation from that week. But I remember the feeling of opening my phone and seeing that life had continued without me — and that there was still a place for me in it.</p>
+  <p>That's what you gave me. Not advice. Not solutions. Just presence.</p>
+  <p>You didn't need to fix me. You just needed to stay.</p>
+  <p>And you did.</p>
+  <div class="divider">&#10022;</div>
+  <p>If you're reading this and wondering whether you were one of the people who helped — you were.</p>
+  <p>Even if we only talked once. Even if you only sent a single message. Even if all you did was like a post or stay in the same voice channel while I was quietly falling asleep to someone's stream. That mattered more than you know.</p>
+  <p>Grief is heavy. But it's a lot lighter when you realize there are people around you who aren't going anywhere.</p>
+  <div class="divider">&#10022;</div>
+  <p>So this chapter is for all of you.</p>
+  <p>The ones who checked in.</p>
+  <p>The ones who invited me out.</p>
+  <p>The ones who stayed up with me.</p>
+  <p>The ones who made me laugh.</p>
+  <p>The ones who didn't treat me like I was broken.</p>
+  <p>The ones who were just there.</p>
+  <p>You didn't have to stay. But you did.</p>
+  <p>And I won't forget that.</p>
+  <div class="divider">&#10022;</div>
+  <p>Thank you.</p>
+  <p>Not for saving me. You were never meant to.</p>
+  <p>Thank you for being there while I saved myself.</p>
+  <p>That made all the difference.</p>
+  <div class="divider">&#10022;</div>
+  <div class="decorative-line closing">&#8346;&#183;.&#176;.&#9734;&bull;</div>
+  <p>— Ralph.</p>
+
+    </div>
+    <div class="page-footer">Ralph's Journal</div>
+  </div>
+
+  <nav class="entry-nav">
+    <div class="entry-nav-links">
+      <a href="special-chapter-8.html" class="entry-nav-prev">&larr; The Letters I Still Send to Heaven</a>
+      <a href="index.html" class="entry-nav-toc">&larr; Back to Journal</a>
+      <span></span>
+    </div>
+  </nav>
+
+  <script>
+    // ─── Dark Mode ───
+    (function() {
+      const toggle = document.getElementById('darkToggle');
+      const saved = localStorage.getItem('journal-theme');
+      if (saved !== 'light') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        toggle.textContent = '☀️';
+      }
+      toggle.addEventListener('click', function() {
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        if (isDark) {
+          document.documentElement.removeAttribute('data-theme');
+          localStorage.setItem('journal-theme', 'light');
+          toggle.textContent = '🌙';
+        } else {
+          document.documentElement.setAttribute('data-theme', 'dark');
+          localStorage.setItem('journal-theme', 'dark');
+          toggle.textContent = '☀️';
+        }
+      });
+    })();
+
+    // ─── Reading Progress ───
+    (function() {
+      const bar = document.getElementById('readingProgress');
+      if (bar) {
+        window.addEventListener('scroll', function() {
+          const scrollTop = window.scrollY;
+          const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+          if (docHeight > 0) {
+            const progress = Math.min(scrollTop / docHeight * 100, 100);
+            bar.style.width = progress + '%';
+          }
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
