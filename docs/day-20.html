@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Day I'm Choosing Permanent — Ralph's Journal</title>
+  <script>(function(){try{var t=localStorage.getItem('journal-theme');if(t!=='light'){document.documentElement.setAttribute('data-theme','dark')}}catch(e){document.documentElement.setAttribute('data-theme','dark')}})();</script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="reading-progress" id="readingProgress"></div>
+
+  <button class="dark-toggle" id="darkToggle" aria-label="Toggle dark mode">&#9728;&#65039;</button>
+
+  <div class="entry-page">
+    <a href="index.html" class="entry-back">&larr; Back to Journal</a>
+    <div class="entry-content">
+<div class="entry-page-header">Ralph's Journal — Day 20</div>
+  <p class="entry-date">Monday, July 13, 2026</p>
+  <p class="entry-meta">3 min read</p>
+  <h1 class="entry-title">The Day I'm Choosing Permanent</h1>
+  <div class="divider">&#10022;</div>
+  <p>I woke up at 10:52 AM.</p>
+  <p>I fell asleep at 11 PM the night before.</p>
+  <p>Almost twelve hours. I don't remember the last time I slept that long.</p>
+  <p>No overthinking. No checking. No replaying.</p>
+  <p>Just sleep.</p>
+  <p>Then I opened my eyes, and it was Monday.</p>
+  <div class="divider">&#10022;</div>
+  <p>Hana messaged first.</p>
+  <p>We kept talking from where we left off the night before. The conversation picked up like no time had passed.</p>
+  <p>Music. She recommended Royel Otis. I showed her Yoke Lore. We traded songs for a while and somehow ended up talking about everything else.</p>
+  <p>Tattoos. She showed me hers — traditional style, Franz Kafka's drawings, a Daruma. She asked about my concept, and I told her about the Da Vinci sleeve I've been imagining for years.</p>
+  <p>I told her about being scared of needles. About donating blood for my mom and never doing it again. She laughed, but not in a mean way.</p>
+  <p>She told me about her art. Her horror novels. Her solo travels. Her plan to dive in Bali.</p>
+  <p>I told her about the engineering work I've done. The designs I've made. The clients I've worked with.</p>
+  <p>She asked about my height because of my fins. I asked about her plans when she visits Manila.</p>
+  <p>Somewhere in between, she said if she ever dives here, she'd let me know.</p>
+  <p>Nothing romantic.</p>
+  <p>Just two people sharing pieces of themselves and watching them fit together naturally.</p>
+  <p>The kind of conversation where you don't notice the hours passing.</p>
+  <div class="divider">&#10022;</div>
+  <p>Then I did it.</p>
+  <p>I messaged a tattoo artist.</p>
+  <p>Years of thinking about this. Years of collecting ideas. Da Vinci inventions. Engineering blueprints. Guitar. Gemini. Coding. All connected by fine lines, like a notebook page wrapped around my arm.</p>
+  <p>I finally asked.</p>
+  <p>The first quote came back at 250k.</p>
+  <p>I stared at it for a moment. Then I kept looking. Other artists. Other prices. A cousin's artist who charged 50k for a piece that took two full days.</p>
+  <p>I'm not in a rush. I'm canvassing. Learning. Figuring out what fits.</p>
+  <p>But I started.</p>
+  <p>That's the part that matters.</p>
+  <div class="divider">&#10022;</div>
+  <p>Eana was around too. We talked here and there throughout the day. Nothing heavy. Just presence.</p>
+  <p>The afternoon passed quietly. Rain outside. Tattoo references open on my screen. I kept searching. Kept planning.</p>
+  <p>A month ago, rain meant something different.</p>
+  <p>Today, it was just rain.</p>
+  <p>And I spent it thinking about what I want to keep. What parts of myself deserve to stay.</p>
+  <p>Not who left.</p>
+  <p>Not what hurt.</p>
+  <p>Just me.</p>
+  <div class="divider">&#10022;</div>
+  <p>At 11 PM, I logged into work.</p>
+  <p>Day 20 ended the way it began — quiet. Uneventful. Mine.</p>
+  <div class="divider">&#10022;</div>
+  <h3 class="section-subheading">Today's Weight: 8/10</h3>
+  <p>Not because I figured something out.</p>
+  <p>Because I spent years thinking about something permanent.</p>
+  <p>And today, I finally made the first move.</p>
+  <p>Not for anyone else.</p>
+  <p>For me.</p>
+  <div class="divider">&#10022;</div>
+  <p>Maybe permanence isn't about tattoos.</p>
+  <p>Maybe it's about finally knowing who you are.</p>
+  <p>The things I've been carrying for years but never acted on. Design. Music. Curiosity. The willingness to build something that lasts.</p>
+  <p>Today wasn't about finding answers.</p>
+  <p>It was about choosing which parts of myself are worth carrying forward.</p>
+  <p>And for the first time in a long while, that feels exciting.</p>
+  <p><em>— Ralph.</em></p>
+
+    </div>
+    <div class="page-footer">Ralph's Journal</div>
+  </div>
+
+  <nav class="entry-nav">
+    <div class="entry-nav-links">
+      <a href="day-19.html" class="entry-nav-prev">&larr; The Day Conversations Found Me</a>
+      <a href="index.html" class="entry-nav-toc">&larr; Back to Journal</a>
+      <span></span>
+    </div>
+  </nav>
+
+  <script>
+    // ─── Dark Mode ───
+    (function() {
+      const toggle = document.getElementById('darkToggle');
+      const saved = localStorage.getItem('journal-theme');
+      if (saved !== 'light') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        toggle.textContent = '☀️';
+      }
+      toggle.addEventListener('click', function() {
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        if (isDark) {
+          document.documentElement.removeAttribute('data-theme');
+          localStorage.setItem('journal-theme', 'light');
+          toggle.textContent = '🌙';
+        } else {
+          document.documentElement.setAttribute('data-theme', 'dark');
+          localStorage.setItem('journal-theme', 'dark');
+          toggle.textContent = '☀️';
+        }
+      });
+    })();
+
+    // ─── Reading Progress ───
+    (function() {
+      const bar = document.getElementById('readingProgress');
+      if (bar) {
+        window.addEventListener('scroll', function() {
+          const scrollTop = window.scrollY;
+          const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+          if (docHeight > 0) {
+            const progress = Math.min(scrollTop / docHeight * 100, 100);
+            bar.style.width = progress + '%';
+          }
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
