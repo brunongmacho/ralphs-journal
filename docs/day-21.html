@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Day Ordinary Was Enough — Ralph's Journal</title>
+  <script>(function(){try{var t=localStorage.getItem('journal-theme');if(t!=='light'){document.documentElement.setAttribute('data-theme','dark')}}catch(e){document.documentElement.setAttribute('data-theme','dark')}})();</script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="reading-progress" id="readingProgress"></div>
+
+  <button class="dark-toggle" id="darkToggle" aria-label="Toggle dark mode">&#9728;&#65039;</button>
+
+  <div class="entry-page">
+    <a href="index.html" class="entry-back">&larr; Back to Journal</a>
+    <div class="entry-content">
+<div class="entry-page-header">Ralph's Journal — Day 21</div>
+  <p class="entry-date">Tuesday, July 14, 2026</p>
+  <p class="entry-meta">1 min read</p>
+  <h1 class="entry-title">The Day Ordinary Was Enough</h1>
+  <div class="divider">&#10022;</div>
+  <p>I finished my shift at 7 AM and went to sleep.</p>
+  <p>That was the first thing that happened on Day 21.</p>
+  <p>Not a realization. Not a breakthrough. Just sleep.</p>
+  <p>I woke up around noon, went out to eat, came home, and watched <em>Eminence in Shadow</em> Season 2.</p>
+  <p>I reached out to more tattoo artists. Sent them my concept. Waited for replies.</p>
+  <p>At 10:44 PM, I logged into work.</p>
+  <p>My dinner was lychee.</p>
+  <p>That was the whole day.</p>
+  <div class="divider">&#10022;</div>
+  <p>Not every day needs to be the day everything changed.</p>
+  <p>Sometimes the day is just:</p>
+  <p>Sleep.</p>
+  <p>Eat.</p>
+  <p>Watch something.</p>
+  <p>Talk to people.</p>
+  <p>Work.</p>
+  <p>And that's enough.</p>
+  <p>I noticed my journal entries are getting shorter.</p>
+  <p>That felt strange at first.</p>
+  <p>Like I was losing something.</p>
+  <p>But I think what's actually happening is simpler.</p>
+  <p>I don't need as many words to explain my day anymore.</p>
+  <p>Because there's nothing to survive.</p>
+  <p>No crisis.</p>
+  <p>No heartbreak.</p>
+  <p>No emergency waiting around the corner.</p>
+  <p>Just life.</p>
+  <p>And for the first time in a long while...</p>
+  <p>ordinary life feels like enough.</p>
+  <p><em>— Ralph.</em></p>
+
+    </div>
+    <div class="page-footer">Ralph's Journal</div>
+  </div>
+
+  <nav class="entry-nav">
+    <div class="entry-nav-links">
+      <a href="day-20.html" class="entry-nav-prev">&larr; The Day I'm Choosing Permanent</a>
+      <a href="index.html" class="entry-nav-toc">&larr; Back to Journal</a>
+      <span></span>
+    </div>
+  </nav>
+
+  <script>
+    // ─── Dark Mode ───
+    (function() {
+      const toggle = document.getElementById('darkToggle');
+      const saved = localStorage.getItem('journal-theme');
+      if (saved !== 'light') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        toggle.textContent = '☀️';
+      }
+      toggle.addEventListener('click', function() {
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        if (isDark) {
+          document.documentElement.removeAttribute('data-theme');
+          localStorage.setItem('journal-theme', 'light');
+          toggle.textContent = '🌙';
+        } else {
+          document.documentElement.setAttribute('data-theme', 'dark');
+          localStorage.setItem('journal-theme', 'dark');
+          toggle.textContent = '☀️';
+        }
+      });
+    })();
+
+    // ─── Reading Progress ───
+    (function() {
+      const bar = document.getElementById('readingProgress');
+      if (bar) {
+        window.addEventListener('scroll', function() {
+          const scrollTop = window.scrollY;
+          const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+          if (docHeight > 0) {
+            const progress = Math.min(scrollTop / docHeight * 100, 100);
+            bar.style.width = progress + '%';
+          }
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
