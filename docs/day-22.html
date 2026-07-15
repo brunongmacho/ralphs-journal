@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Day I Had Nowhere to Be — Ralph's Journal</title>
+  <script>(function(){try{var t=localStorage.getItem('journal-theme');if(t!=='light'){document.documentElement.setAttribute('data-theme','dark')}}catch(e){document.documentElement.setAttribute('data-theme','dark')}})();</script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="reading-progress" id="readingProgress"></div>
+
+  <button class="dark-toggle" id="darkToggle" aria-label="Toggle dark mode">&#9728;&#65039;</button>
+
+  <div class="entry-page">
+    <a href="index.html" class="entry-back">&larr; Back to Journal</a>
+    <div class="entry-content">
+<div class="entry-page-header">Ralph's Journal — Day 22</div>
+  <p class="entry-date">Wednesday, July 15, 2026</p>
+  <p class="entry-meta">2 min read</p>
+  <h1 class="entry-title">The Day I Had Nowhere to Be</h1>
+  <div class="divider">&#10022;</div>
+  <p>I logged out at 7 AM and went to sleep.</p>
+  <p>That was the first thing that happened on Day 22.</p>
+  <p>Not a plan. Not a realization. Just sleep.</p>
+  <div class="divider">&#10022;</div>
+  <p>I woke up around 10, stayed in bed doom scrolling until noon. Then I went out to eat.</p>
+  <p>Small things.</p>
+  <p>But they filled the morning.</p>
+  <div class="divider">&#10022;</div>
+  <p>Eana called.</p>
+  <p>We talked the way we always do. Comfortable. Easy. No pressure.</p>
+  <p>Somewhere in the middle of the call, one of my guitar strings snapped.</p>
+  <p>I laughed.</p>
+  <p>I'd been meaning to bring the guitar in for repairs for a while. The strings have been too high for months. I just never had a strong enough reason to stop postponing it. The snapped string was the nudge.</p>
+  <p>I messaged the shop on Facebook and told them I'd bring it in.</p>
+  <div class="divider">&#10022;</div>
+  <p>Then there was Hana.</p>
+  <p>We talked the way we've been talking these past few days.</p>
+  <p>About freediving.</p>
+  <p>About tattoos.</p>
+  <p>About travel.</p>
+  <p>About why neither of us wants kids.</p>
+  <p>About the guilt of wanting to move out even when you love your family.</p>
+  <p>About the islands she's been dreaming of.</p>
+  <p>About coffee.</p>
+  <p>About horror movies.</p>
+  <p>About music.</p>
+  <p>About our families.</p>
+  <p>The conversation didn't feel like the beginning of anything.</p>
+  <p>It felt like catching up with someone I'd already known.</p>
+  <div class="divider">&#10022;</div>
+  <p>I showed her the special chapter I'd been working on — the one I wrote about her.</p>
+  <p>She said: <em>&quot;I can totally say the same things.&quot;</em></p>
+  <p>And then: <em>&quot;Please know that I also notice you.&quot;</em></p>
+  <p>I shared the journal with her.</p>
+  <p>She said she'd read it slowly, one entry at a time.</p>
+  <div class="divider">&#10022;</div>
+  <p>I spent the rest of the day doing nothing in particular.</p>
+  <p>Hana on Instagram. Eana on Discord. A guitar waiting for repair. A tattoo still being planned.</p>
+  <p>Conversations that didn't need to be profound to be worth having.</p>
+  <p>A month ago, I would have measured a day by how much I'd healed.</p>
+  <p>Today, I measured it by how present I felt.</p>
+  <div class="divider">&#10022;</div>
+  <h3 class="section-subheading">Today's Weight: 7/10</h3>
+  <p>Not because something happened.</p>
+  <p>Because nothing needed to.</p>
+  <p>No realizations about healing.</p>
+  <p>No reflections on the past.</p>
+  <p>No dramatic breakthroughs.</p>
+  <p>Just a Wednesday where conversations kept finding me.</p>
+  <p>And for the first time in a long while, I realized I wasn't chasing anything anymore.</p>
+  <div class="divider">&#10022;</div>
+  <p>A few months ago, I would've tried to figure out where every conversation was leading.</p>
+  <p>Today, I'm just grateful they're happening.</p>
+  <p>A voice call with a friend.</p>
+  <p>A guitar that finally asked for attention.</p>
+  <p>A stranger who felt familiar.</p>
+  <p>A shared journal.</p>
+  <p>A day that asked for nothing.</p>
+  <p>And for now...</p>
+  <p>that's enough.</p>
+  <p><em>— Ralph.</em></p>
+
+    </div>
+    <div class="page-footer">Ralph's Journal</div>
+  </div>
+
+  <nav class="entry-nav">
+    <div class="entry-nav-links">
+      <a href="special-chapter-16.html" class="entry-nav-prev">&larr; The Stranger Who Felt Familiar</a>
+      <a href="index.html" class="entry-nav-toc">&larr; Back to Journal</a>
+      <span></span>
+    </div>
+  </nav>
+
+  <script>
+    // ─── Dark Mode ───
+    (function() {
+      const toggle = document.getElementById('darkToggle');
+      const saved = localStorage.getItem('journal-theme');
+      if (saved !== 'light') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        toggle.textContent = '☀️';
+      }
+      toggle.addEventListener('click', function() {
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        if (isDark) {
+          document.documentElement.removeAttribute('data-theme');
+          localStorage.setItem('journal-theme', 'light');
+          toggle.textContent = '🌙';
+        } else {
+          document.documentElement.setAttribute('data-theme', 'dark');
+          localStorage.setItem('journal-theme', 'dark');
+          toggle.textContent = '☀️';
+        }
+      });
+    })();
+
+    // ─── Reading Progress ───
+    (function() {
+      const bar = document.getElementById('readingProgress');
+      if (bar) {
+        window.addEventListener('scroll', function() {
+          const scrollTop = window.scrollY;
+          const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+          if (docHeight > 0) {
+            const progress = Math.min(scrollTop / docHeight * 100, 100);
+            bar.style.width = progress + '%';
+          }
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
