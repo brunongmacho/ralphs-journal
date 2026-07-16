@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Day the Hours Were Mine — Ralph's Journal</title>
+  <script>(function(){try{var t=localStorage.getItem('journal-theme');if(t!=='light'){document.documentElement.setAttribute('data-theme','dark')}}catch(e){document.documentElement.setAttribute('data-theme','dark')}})();</script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="reading-progress" id="readingProgress"></div>
+
+  <button class="dark-toggle" id="darkToggle" aria-label="Toggle dark mode">&#9728;&#65039;</button>
+
+  <div class="entry-page">
+    <a href="index.html" class="entry-back">&larr; Back to Journal</a>
+    <div class="entry-content">
+<div class="entry-page-header">Ralph's Journal — Day 23</div>
+  <p class="entry-date">Thursday, July 16, 2026</p>
+  <p class="entry-meta">3 min read</p>
+  <h1 class="entry-title">The Day the Hours Were Mine</h1>
+  <div class="divider">&#10022;</div>
+  <p>Day 23 started with me being 30 minutes late for my shift.</p>
+  <p>Not because I was overwhelmed. Not because I stayed up overthinking. I just overslept.</p>
+  <p>Which is funny considering how many nights I used to struggle to sleep at all.</p>
+  <p>Somewhere between healing and ordinary life, I developed the ability to accidentally sleep through alarms.</p>
+  <p>Progress comes in strange forms.</p>
+  <div class="divider">&#10022;</div>
+  <p>I woke up around noon and stayed in bed for a while. At 2 PM, I went out to Bon Appetea and ordered chicken carbonara with a mango lychee drink. Before heading home, I bought Sprite and fries because I felt like it.</p>
+  <p>No reason. Just wanted them.</p>
+  <p>I spent the afternoon watching anime and trying Ragnarok New World.</p>
+  <p>Small things.</p>
+  <p>But they filled the afternoon.</p>
+  <div class="divider">&#10022;</div>
+  <p>Hana was already asleep for our shift later when I woke up. But by the time she was up, we picked up where we always do.</p>
+  <p>She went out to buy veggies for her and her cats. Dropped by a cafe to study.</p>
+  <p>About her course.</p>
+  <p>About the cert she's working toward.</p>
+  <p>About how she learns better hands-on too.</p>
+  <p>About the Backrooms movie — I mentioned it because I played the game and got curious how they adapted it.</p>
+  <p>She said she'd use it as background while studying.</p>
+  <p>About tacos and chicken pasta and mango lychee.</p>
+  <p>She sent a photo of her food. I sent one of mine.</p>
+  <p><em>&quot;Grabe naman tugtugan dito nakakarelapse.&quot;</em></p>
+  <p>I sent her a voice message of the music playing at the cafe.</p>
+  <p>About freediving gear. Hers arrived — all black. She said it could pass for a bank robber outfit.</p>
+  <p><em>&quot;Sakto naghahanap ako ng pwedeng bangkong manakawan.&quot;</em></p>
+  <p>She laughed.</p>
+  <p>About a lot of things that don't need to be listed to matter.</p>
+  <div class="divider">&#10022;</div>
+  <p>Somewhere in the middle of the conversation, I mentioned that Elaine messaged me.</p>
+  <p>A new game launched. She asked if I was going to play.</p>
+  <p>We had plans to play it together before everything happened.</p>
+  <p>I didn't reply.</p>
+  <p>Hana didn't tell me what to do. She just said:</p>
+  <p><em>&quot;It's of your own volition on how you place her in your life.&quot;</em></p>
+  <p>I liked that she didn't make it about her.</p>
+  <div class="divider">&#10022;</div>
+  <p>Around 7:30 PM, I cooked pancit canton with salted egg and tomatoes. Watched Backrooms with Eana over Discord.</p>
+  <p>A horror movie.</p>
+  <p>Someone to watch it with.</p>
+  <p>A shift that started later.</p>
+  <p>Nothing connected those moments.</p>
+  <p>And somehow, that was the point.</p>
+  <div class="divider">&#10022;</div>
+  <h3 class="section-subheading">Today's Weight: 7/10</h3>
+  <p>Not because anything special happened.</p>
+  <p>Because nothing needed to.</p>
+  <p>No realizations about healing.</p>
+  <p>No reflections on the past.</p>
+  <p>No dramatic breakthroughs.</p>
+  <p>Just a Thursday where I overslept, ate well, talked to people I enjoy, and ended the day watching a horror movie with a friend.</p>
+  <p>The hours were mine.</p>
+  <p>And that was already enough.</p>
+  <div class="divider">&#10022;</div>
+  <p>A few months ago, I would've tried to figure out where every conversation was leading.</p>
+  <p>Today, I'm just grateful they're happening.</p>
+  <p>A carbonara lunch I didn't plan.</p>
+  <p>A voice message about nakakarelapse music.</p>
+  <p>A bank robber freediving suit.</p>
+  <p>A horror movie with salted egg on the side.</p>
+  <p>A day that belonged to no one but me.</p>
+  <p>And for now...</p>
+  <p>that's enough.</p>
+  <p><em>— Ralph.</em></p>
+
+    </div>
+    <div class="page-footer">Ralph's Journal</div>
+  </div>
+
+  <nav class="entry-nav">
+    <div class="entry-nav-links">
+      <a href="day-22.html" class="entry-nav-prev">&larr; The Day I Had Nowhere to Be</a>
+      <a href="index.html" class="entry-nav-toc">&larr; Back to Journal</a>
+      <span></span>
+    </div>
+  </nav>
+
+  <script>
+    // ─── Dark Mode ───
+    (function() {
+      const toggle = document.getElementById('darkToggle');
+      const saved = localStorage.getItem('journal-theme');
+      if (saved !== 'light') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        toggle.textContent = '☀️';
+      }
+      toggle.addEventListener('click', function() {
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        if (isDark) {
+          document.documentElement.removeAttribute('data-theme');
+          localStorage.setItem('journal-theme', 'light');
+          toggle.textContent = '🌙';
+        } else {
+          document.documentElement.setAttribute('data-theme', 'dark');
+          localStorage.setItem('journal-theme', 'dark');
+          toggle.textContent = '☀️';
+        }
+      });
+    })();
+
+    // ─── Reading Progress ───
+    (function() {
+      const bar = document.getElementById('readingProgress');
+      if (bar) {
+        window.addEventListener('scroll', function() {
+          const scrollTop = window.scrollY;
+          const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+          if (docHeight > 0) {
+            const progress = Math.min(scrollTop / docHeight * 100, 100);
+            bar.style.width = progress + '%';
+          }
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
