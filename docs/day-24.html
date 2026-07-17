@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Day the Future Needed an Address — Ralph's Journal</title>
+  <script>(function(){try{var t=localStorage.getItem('journal-theme');if(t!=='light'){document.documentElement.setAttribute('data-theme','dark')}}catch(e){document.documentElement.setAttribute('data-theme','dark')}})();</script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="reading-progress" id="readingProgress"></div>
+
+  <button class="dark-toggle" id="darkToggle" aria-label="Toggle dark mode">&#9728;&#65039;</button>
+
+  <div class="entry-page">
+    <a href="index.html" class="entry-back">&larr; Back to Journal</a>
+    <div class="entry-content">
+<div class="entry-page-header">Ralph's Journal — Day 24</div>
+  <p class="entry-date">Friday, July 17, 2026</p>
+  <p class="entry-meta">2 min read</p>
+  <h1 class="entry-title">The Day the Future Needed an Address</h1>
+  <div class="divider">&#10022;</div>
+  <p>During work, we had a mock meeting. Our TF acted as the founder and we roleplayed like it was our first day meeting them.</p>
+  <p>A few weeks ago, I was asking how to answer founder questions.</p>
+  <p>Today, I was just participating.</p>
+  <p>Not because I had mastered anything.</p>
+  <p>But because I'd been practicing long enough that it stopped feeling like practice.</p>
+  <div class="divider">&#10022;</div>
+  <p>Shift ended at 7 AM. I slept almost immediately. Woke up at noon.</p>
+  <p>Somewhere between those two moments, the mock meeting stopped mattering.</p>
+  <p>Because the rest of the day belonged to something bigger.</p>
+  <div class="divider">&#10022;</div>
+  <p>I spent hours looking for a place to rent.</p>
+  <p>Not casually browsing. Actively searching. Contacting. Comparing. Calculating.</p>
+  <p>I need to go my own way from my cousin's house. Nothing wrong between us. I just need privacy and independence. My own space. My own routines. My own door.</p>
+  <p>A place where I can work nights without disturbing anyone.</p>
+  <p>Play guitar whenever I want.</p>
+  <p>Watch anime at 2 PM.</p>
+  <p>Talk to friends on Discord.</p>
+  <p>Write.</p>
+  <p>Build.</p>
+  <p>Just exist without adjusting to someone else's rhythm.</p>
+  <p>Maybe that's what independence really is.</p>
+  <p>Not freedom from people.</p>
+  <p>Freedom to become yourself.</p>
+  <p>I found one. Not far from here. I'm going to view it tomorrow.</p>
+  <p>Funny how something can be ten minutes away and still feel like a completely different life.</p>
+  <div class="divider">&#10022;</div>
+  <p>I didn't eat brunch until almost 4 PM.</p>
+  <p>That's how long I was searching.</p>
+  <p>That's when I realized this wasn't just an idea anymore.</p>
+  <div class="divider">&#10022;</div>
+  <h3 class="section-subheading">Today's Weight: 8/10</h3>
+  <p>Not because I found a place.</p>
+  <p>Because I finally started looking.</p>
+  <p>No dramatic breakthrough.</p>
+  <p>No love story.</p>
+  <p>No big lesson.</p>
+  <p>Just a Friday where I decided the next version of my life needs an address.</p>
+  <div class="divider">&#10022;</div>
+  <p>A few months ago, I was trying to figure out how to survive the next hour.</p>
+  <p>Today, I was figuring out where I'm going to live.</p>
+  <p>Yesterday, the future was a Facebook listing.</p>
+  <p>Tomorrow, it has a front door.</p>
+  <p>And for now...</p>
+  <p>that's already more than I had yesterday.</p>
+  <p><em>— Ralph.</em></p>
+
+    </div>
+    <div class="page-footer">Ralph's Journal</div>
+  </div>
+
+  <nav class="entry-nav">
+    <div class="entry-nav-links">
+      <a href="day-23.html" class="entry-nav-prev">&larr; The Day the Hours Were Mine</a>
+      <a href="index.html" class="entry-nav-toc">&larr; Back to Journal</a>
+      <span></span>
+    </div>
+  </nav>
+
+  <script>
+    // ─── Dark Mode ───
+    (function() {
+      const toggle = document.getElementById('darkToggle');
+      const saved = localStorage.getItem('journal-theme');
+      if (saved !== 'light') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        toggle.textContent = '☀️';
+      }
+      toggle.addEventListener('click', function() {
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        if (isDark) {
+          document.documentElement.removeAttribute('data-theme');
+          localStorage.setItem('journal-theme', 'light');
+          toggle.textContent = '🌙';
+        } else {
+          document.documentElement.setAttribute('data-theme', 'dark');
+          localStorage.setItem('journal-theme', 'dark');
+          toggle.textContent = '☀️';
+        }
+      });
+    })();
+
+    // ─── Reading Progress ───
+    (function() {
+      const bar = document.getElementById('readingProgress');
+      if (bar) {
+        window.addEventListener('scroll', function() {
+          const scrollTop = window.scrollY;
+          const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+          if (docHeight > 0) {
+            const progress = Math.min(scrollTop / docHeight * 100, 100);
+            bar.style.width = progress + '%';
+          }
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
