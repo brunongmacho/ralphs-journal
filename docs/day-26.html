@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Day I Let Sunday Be Sunday — Ralph's Journal</title>
+  <script>(function(){try{var t=localStorage.getItem('journal-theme');if(t!=='light'){document.documentElement.setAttribute('data-theme','dark')}}catch(e){document.documentElement.setAttribute('data-theme','dark')}})();</script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="reading-progress" id="readingProgress"></div>
+
+  <button class="dark-toggle" id="darkToggle" aria-label="Toggle dark mode">&#9728;&#65039;</button>
+
+  <div class="entry-page">
+    <a href="index.html" class="entry-back">&larr; Back to Journal</a>
+    <div class="entry-content">
+<div class="entry-page-header">Ralph's Journal — Day 26</div>
+  <p class="entry-date">Sunday, July 19, 2026</p>
+  <p class="entry-meta">2 min read</p>
+  <h1 class="entry-title">The Day I Let Sunday Be Sunday</h1>
+  <div class="divider">&#10022;</div>
+  <p>I spent most of the day watching <em>How I Met Your Mother</em>.</p>
+  <p>Not because I had nothing else to do.</p>
+  <p>I just didn't feel like doing anything else.</p>
+  <div class="divider">&#10022;</div>
+  <p>I cooked the rest of yesterday's daing na bangus and ate it with rice.</p>
+  <p>Dessert was Pocky and Snaku.</p>
+  <p>Simple.</p>
+  <p>Enough.</p>
+  <div class="divider">&#10022;</div>
+  <p>I cashed in the remaining funds for the apartment.</p>
+  <p>Now I'm just waiting for the payment confirmation.</p>
+  <p>It's funny how waiting for something good feels completely different from waiting for something uncertain.</p>
+  <p>One fills you with anxiety.</p>
+  <p>The other fills you with anticipation.</p>
+  <div class="divider">&#10022;</div>
+  <p>Hana went to a laundromat earlier.</p>
+  <p>She loaded her clothes into the machine.</p>
+  <p>Then the power went out.</p>
+  <p>I laughed when she told me.</p>
+  <p>She seems to collect unexpected stories without even trying.</p>
+  <p>Her life feels like a sitcom sometimes.</p>
+  <p>Mine just felt... wonderfully uneventful.</p>
+  <div class="divider">&#10022;</div>
+  <p>We talked while she waited.</p>
+  <p>Nothing heavy.</p>
+  <p>Nothing life-changing.</p>
+  <p>Just checking in.</p>
+  <p>She has a way of making ordinary conversations feel complete.</p>
+  <div class="divider">&#10022;</div>
+  <p>I'm excited about the 25th.</p>
+  <p>Finally having my own space.</p>
+  <p>My own routines.</p>
+  <p>My own privacy.</p>
+  <p>A place where I won't have to adjust my life around anyone else's schedule.</p>
+  <p>At the same time...</p>
+  <p>I'm a little scared.</p>
+  <p>It'll be my first time living completely alone.</p>
+  <p>The silence will probably sound different.</p>
+  <p>But maybe that's exactly what I've been looking for.</p>
+  <p>When I get there, I already know what I'll do first.</p>
+  <p>Set up the PC.</p>
+  <p>Fix the bed.</p>
+  <p>Everything else can wait.</p>
+  <p>The internet is already there.</p>
+  <p>Just waiting for me.</p>
+  <div class="divider">&#10022;</div>
+  <p>I also spent a little time playing <em>Ragnarok New World</em>.</p>
+  <p>Mostly solo.</p>
+  <p>Not lonely.</p>
+  <p>Just peaceful.</p>
+  <div class="divider">&#10022;</div>
+  <p>A month ago, I would've tried to make today feel productive.</p>
+  <p>I would've looked for another course.</p>
+  <p>Another conversation.</p>
+  <p>Another distraction.</p>
+  <p>Today...</p>
+  <p>I watched a sitcom.</p>
+  <p>Cooked fish.</p>
+  <p>Ate Pocky.</p>
+  <p>Waited for a payment confirmation.</p>
+  <p>The old version of me would've called that a wasted day.</p>
+  <p>The version writing this simply calls it Sunday.</p>
+  <div class="divider">&#10022;</div>
+  <h3 class="section-subheading">Today's Weight: 7/10</h3>
+  <p>Not because anything special happened.</p>
+  <p>Because nothing needed to.</p>
+  <div class="divider">&#10022;</div>
+  <p>A few months ago, I measured my days by how much I'd survived.</p>
+  <p>Today...</p>
+  <p>I measured mine by how little I needed to escape.</p>
+  <p>Maybe peace was never something I had to find.</p>
+  <p>Maybe it was something I simply had to stop running from.</p>
+  <p>And somehow...</p>
+  <p>that felt like enough.</p>
+  <p><em>— Ralph.</em></p>
+
+    </div>
+    <div class="page-footer">Ralph's Journal</div>
+  </div>
+
+  <nav class="entry-nav">
+    <div class="entry-nav-links">
+      <a href="day-25.html" class="entry-nav-prev">&larr; The Day I Wasn't Chasing Anything</a>
+      <a href="index.html" class="entry-nav-toc">&larr; Back to Journal</a>
+      <span></span>
+    </div>
+  </nav>
+
+  <script>
+    // ─── Dark Mode ───
+    (function() {
+      const toggle = document.getElementById('darkToggle');
+      const saved = localStorage.getItem('journal-theme');
+      if (saved !== 'light') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        toggle.textContent = '☀️';
+      }
+      toggle.addEventListener('click', function() {
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        if (isDark) {
+          document.documentElement.removeAttribute('data-theme');
+          localStorage.setItem('journal-theme', 'light');
+          toggle.textContent = '🌙';
+        } else {
+          document.documentElement.setAttribute('data-theme', 'dark');
+          localStorage.setItem('journal-theme', 'dark');
+          toggle.textContent = '☀️';
+        }
+      });
+    })();
+
+    // ─── Reading Progress ───
+    (function() {
+      const bar = document.getElementById('readingProgress');
+      if (bar) {
+        window.addEventListener('scroll', function() {
+          const scrollTop = window.scrollY;
+          const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+          if (docHeight > 0) {
+            const progress = Math.min(scrollTop / docHeight * 100, 100);
+            bar.style.width = progress + '%';
+          }
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
