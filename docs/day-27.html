@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Day Nothing Was Urgent — Ralph's Journal</title>
+  <script>(function(){try{var t=localStorage.getItem('journal-theme');if(t!=='light'){document.documentElement.setAttribute('data-theme','dark')}}catch(e){document.documentElement.setAttribute('data-theme','dark')}})();</script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="reading-progress" id="readingProgress"></div>
+
+  <button class="dark-toggle" id="darkToggle" aria-label="Toggle dark mode">&#9728;&#65039;</button>
+
+  <div class="entry-page">
+    <a href="index.html" class="entry-back">&larr; Back to Journal</a>
+    <div class="entry-content">
+<div class="entry-page-header">Ralph's Journal — Day 27</div>
+  <p class="entry-date">Monday, July 20, 2026</p>
+  <p class="entry-meta">2 min read</p>
+  <h1 class="entry-title">The Day Nothing Was Urgent</h1>
+  <div class="divider">&#10022;</div>
+  <p>I woke up at 5:20 AM.</p>
+  <p>Not because I had to.</p>
+  <p>I just... did.</p>
+  <p>I slept around 1 AM and woke up naturally a few hours later.</p>
+  <p>No alarm.</p>
+  <p>No panic.</p>
+  <p>Just a quiet morning that started earlier than expected.</p>
+  <p>I spent the first part of it doom-scrolling Instagram.</p>
+  <p>Nothing important.</p>
+  <p>Just existing until I felt awake enough to do something else.</p>
+  <div class="divider">&#10022;</div>
+  <p>Around 6, I started watching something new.</p>
+  <p><em>Mr. D.</em></p>
+  <p>I'd never seen it before, but I found myself laughing more than I expected. Gerry Duncan is the kind of character who's confidently wrong about everything, and the awkward humor landed exactly where I needed it to.</p>
+  <p>It's been a while since I watched a comedy that made me laugh that often.</p>
+  <p>A few months ago, I probably would've chosen something heavier.</p>
+  <p>Something that matched how I felt inside.</p>
+  <p>Lately...</p>
+  <p>I've been choosing stories that let me laugh instead.</p>
+  <p><em>Mr. D.</em> felt like exactly the show I needed today.</p>
+  <div class="divider">&#10022;</div>
+  <p>I went out to eat around 10:30.</p>
+  <p>Nothing special. Just breakfast.</p>
+  <p>While I was out, I was chatting with Eana, Hana, and Dewy on and off. Nothing urgent. Just checking in. Sharing random thoughts.</p>
+  <p>A few months ago, my social life revolved around one person.</p>
+  <p>If that conversation slowed down...</p>
+  <p>my mood slowed down with it.</p>
+  <p>Now my life feels a little more spread out.</p>
+  <p>Hana is someone I'm still discovering through everyday talk.</p>
+  <p>Eana is a comfortable friend I can hang out with casually.</p>
+  <p>Dewy is someone I'm coaching and encouraging.</p>
+  <p>I'm no longer depending on a single connection to carry my entire day.</p>
+  <p>That shift didn't feel dramatic when it happened. But looking at it now, it's one of the healthiest changes I've made.</p>
+  <div class="divider">&#10022;</div>
+  <p>I spent the rest of the afternoon watching more episodes.</p>
+  <p>That's it.</p>
+  <p>No courses. No urgent messages. No emotional storms.</p>
+  <p>Just a Monday where I watched shows, ate good food, talked to people I enjoy, and waited for work.</p>
+  <p>A few months ago, this day would've made me restless. I would've felt like I was wasting time. I would've looked for something to fill the silence.</p>
+  <p>Today, I just let it be what it was.</p>
+  <p>Boring.</p>
+  <p>Quiet.</p>
+  <p>Exactly what I needed.</p>
+  <div class="divider">&#10022;</div>
+  <h3 class="section-subheading">Today's Weight: 6/10</h3>
+  <p>Not because it was unproductive.</p>
+  <p>Because nothing needed my attention.</p>
+  <p>And that's becoming a familiar kind of peace.</p>
+  <div class="divider">&#10022;</div>
+  <p>A few months ago, I measured my days by how much I accomplished.</p>
+  <p>Today...</p>
+  <p>I measured mine by how little I needed to escape.</p>
+  <p>Maybe that's what an ordinary day is supposed to feel like.</p>
+  <p>And somehow...</p>
+  <p>that felt like enough.</p>
+  <p><em>— Ralph.</em></p>
+
+    </div>
+    <div class="page-footer">Ralph's Journal</div>
+  </div>
+
+  <nav class="entry-nav">
+    <div class="entry-nav-links">
+      <a href="day-26.html" class="entry-nav-prev">&larr; The Day I Let Sunday Be Sunday</a>
+      <a href="index.html" class="entry-nav-toc">&larr; Back to Journal</a>
+      <span></span>
+    </div>
+  </nav>
+
+  <script>
+    // ─── Dark Mode ───
+    (function() {
+      const toggle = document.getElementById('darkToggle');
+      const saved = localStorage.getItem('journal-theme');
+      if (saved !== 'light') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        toggle.textContent = '☀️';
+      }
+      toggle.addEventListener('click', function() {
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        if (isDark) {
+          document.documentElement.removeAttribute('data-theme');
+          localStorage.setItem('journal-theme', 'light');
+          toggle.textContent = '🌙';
+        } else {
+          document.documentElement.setAttribute('data-theme', 'dark');
+          localStorage.setItem('journal-theme', 'dark');
+          toggle.textContent = '☀️';
+        }
+      });
+    })();
+
+    // ─── Reading Progress ───
+    (function() {
+      const bar = document.getElementById('readingProgress');
+      if (bar) {
+        window.addEventListener('scroll', function() {
+          const scrollTop = window.scrollY;
+          const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+          if (docHeight > 0) {
+            const progress = Math.min(scrollTop / docHeight * 100, 100);
+            bar.style.width = progress + '%';
+          }
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
