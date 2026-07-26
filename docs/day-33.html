@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Day Nothing Happened — Ralph's Journal</title>
+  <script>(function(){try{var t=localStorage.getItem('journal-theme');if(t!=='light'){document.documentElement.setAttribute('data-theme','dark')}}catch(e){document.documentElement.setAttribute('data-theme','dark')}})();</script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="reading-progress" id="readingProgress"></div>
+
+  <button class="dark-toggle" id="darkToggle" aria-label="Toggle dark mode">&#9728;&#65039;</button>
+
+  <div class="entry-page">
+    <a href="index.html" class="entry-back">&larr; Back to Journal</a>
+    <div class="entry-content">
+<div class="entry-page-header">Ralph's Journal — Day 33</div>
+  <p class="entry-date">Sunday, July 26, 2026</p>
+  <p class="entry-meta">1 min read</p>
+  <h1 class="entry-title">The Day Nothing Happened</h1>
+  <div class="divider">&#10022;</div>
+  <p>I woke up at 8 AM in a bed that doesn't know me yet.</p>
+  <p>My body aches.</p>
+  <p>Not from anything dramatic.</p>
+  <p>Just from sleeping somewhere unfamiliar.</p>
+  <p>It'll pass.</p>
+  <div class="divider">&#10022;</div>
+  <p>I went to the grocery.</p>
+  <p>Bought breakfast.</p>
+  <p>Ate alone at my own table.</p>
+  <p>Then I watched a series.</p>
+  <p>Played Ragnarok.</p>
+  <p>Nothing surprising.</p>
+  <p>Nothing that needs to be remembered.</p>
+  <div class="divider">&#10022;</div>
+  <p>At 3 PM I walked to the laundromat.</p>
+  <p>Stopped by the bakery.</p>
+  <p>Bought bread.</p>
+  <p>Came home.</p>
+  <p>I looked around. Every object in this room is here because I chose it.</p>
+  <p>That feeling doesn't get old.</p>
+  <p>That was the most exciting part of my afternoon.</p>
+  <p>And I was okay with that.</p>
+  <div class="divider">&#10022;</div>
+  <p>This is my first official day being solo.</p>
+  <p>It feels strange.</p>
+  <p>Not bad.</p>
+  <p>Just... quiet.</p>
+  <p>The kind of quiet that takes getting used to.</p>
+  <div class="divider">&#10022;</div>
+  <p>I am still talking to Yui.</p>
+  <p>We've been talking every day.</p>
+  <p>I mentioned it like it was nothing.</p>
+  <p>Because it is.</p>
+  <p>No questions about whether I'm ready.</p>
+  <p>No guilt.</p>
+  <p>Just conversations.</p>
+  <p>That's new too.</p>
+  <div class="divider">&#10022;</div>
+  <p>At 10:50 PM we watched Disclosure on Discord.</p>
+  <p>It had an open ending.</p>
+  <p>I sat there after the credits wondering what happens next.</p>
+  <p>Then I realized I didn't mind not knowing.</p>
+  <p>Some stories don't need to be resolved tonight.</p>
+  <div class="divider">&#10022;</div>
+  <p>Nothing remarkable happened today.</p>
+  <p>No breakthroughs.</p>
+  <p>No breakdowns.</p>
+  <p>No visits from the past.</p>
+  <p>Just laundry, bread, Ragnarok, and a movie with someone I like.</p>
+  <p>A month ago, a Sunday like this would've felt empty.</p>
+  <p>Today it felt like enough.</p>
+  <div class="divider">&#10022;</div>
+  <p><em>— Ralph.</em></p>
+
+    </div>
+    <div class="page-footer">Ralph's Journal</div>
+  </div>
+
+  <nav class="entry-nav">
+    <div class="entry-nav-links">
+      <a href="day-32.html" class="entry-nav-prev">&larr; The Day I Walked Into My Own Life</a>
+      <a href="index.html" class="entry-nav-toc">&larr; Back to Journal</a>
+      <span></span>
+    </div>
+  </nav>
+
+  <script>
+    // ─── Dark Mode ───
+    (function() {
+      const toggle = document.getElementById('darkToggle');
+      const saved = localStorage.getItem('journal-theme');
+      if (saved !== 'light') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        toggle.textContent = '☀️';
+      }
+      toggle.addEventListener('click', function() {
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        if (isDark) {
+          document.documentElement.removeAttribute('data-theme');
+          localStorage.setItem('journal-theme', 'light');
+          toggle.textContent = '🌙';
+        } else {
+          document.documentElement.setAttribute('data-theme', 'dark');
+          localStorage.setItem('journal-theme', 'dark');
+          toggle.textContent = '☀️';
+        }
+      });
+    })();
+
+    // ─── Reading Progress ───
+    (function() {
+      const bar = document.getElementById('readingProgress');
+      if (bar) {
+        window.addEventListener('scroll', function() {
+          const scrollTop = window.scrollY;
+          const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+          if (docHeight > 0) {
+            const progress = Math.min(scrollTop / docHeight * 100, 100);
+            bar.style.width = progress + '%';
+          }
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
