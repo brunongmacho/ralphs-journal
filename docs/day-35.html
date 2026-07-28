@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Day I Forgot to Write — Ralph's Journal</title>
+  <script>(function(){try{var t=localStorage.getItem('journal-theme');if(t!=='light'){document.documentElement.setAttribute('data-theme','dark')}}catch(e){document.documentElement.setAttribute('data-theme','dark')}})();</script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="reading-progress" id="readingProgress"></div>
+
+  <button class="dark-toggle" id="darkToggle" aria-label="Toggle dark mode">&#9728;&#65039;</button>
+
+  <div class="entry-page">
+    <a href="index.html" class="entry-back">&larr; Back to Journal</a>
+    <div class="entry-content">
+<div class="entry-page-header">Ralph's Journal — Day 35</div>
+  <p class="entry-date">Tuesday, July 28, 2026</p>
+  <p class="entry-meta">1 min read</p>
+  <h1 class="entry-title">The Day I Forgot to Write</h1>
+  <div class="divider">&#10022;</div>
+  <p>Today was... ordinary.</p>
+  <p>I logged out at 7 AM and went straight to bed.</p>
+  <p>No overthinking.</p>
+  <p>No journal.</p>
+  <p>Just sleep.</p>
+  <div class="divider">&#10022;</div>
+  <p>Around 2 PM, the delivery guy woke me up.</p>
+  <p>My new pillows finally arrived.</p>
+  <p>I actually got excited over pillows.</p>
+  <p>I opened the package, smiled for a second, then went back to sleep.</p>
+  <p>I guess adulthood is celebrating things that would've bored me a few years ago.</p>
+  <div class="divider">&#10022;</div>
+  <p>I woke up again around 5 PM.</p>
+  <p>Went outside for a late brunch.</p>
+  <p>Took a shower.</p>
+  <p>Came home.</p>
+  <p>Turned on <em>Mr. D.</em></p>
+  <p>Nothing unexpected happened today.</p>
+  <p>No heavy conversations.</p>
+  <p>No difficult emotions.</p>
+  <p>No surprises.</p>
+  <p>Just another afternoon inside my apartment.</p>
+  <div class="divider">&#10022;</div>
+  <p>Around 6 PM I suddenly remembered.</p>
+  <p>&quot;Oh shit... my journal.&quot;</p>
+  <p>Thirty-four straight days...</p>
+  <p>and today was the first time I completely forgot about it.</p>
+  <p>Not because I was avoiding it.</p>
+  <p>I genuinely forgot.</p>
+  <p>That feels different.</p>
+  <p>Maybe that's a good sign.</p>
+  <div class="divider">&#10022;</div>
+  <p>I finished my Ragnarok dailies.</p>
+  <p>Logged in for work at 11 PM.</p>
+  <p>Sat down at my desk.</p>
+  <p>My desk.</p>
+  <p>My room.</p>
+  <p>My apartment.</p>
+  <p>I don't think that feeling has fully sunk in yet.</p>
+  <p>Every time I sit here, I still catch myself thinking,</p>
+  <p><em>&quot;Oh... this is home now.&quot;</em></p>
+  <div class="divider">&#10022;</div>
+  <p>Nothing remarkable happened today.</p>
+  <p>But I don't think every day needs to become a chapter.</p>
+  <p>Some days exist simply to remind us what normal feels like.</p>
+  <p>And after everything that's happened these past few weeks...</p>
+  <p>normal feels pretty nice.</p>
+  <div class="divider">&#10022;</div>
+  <p>— Ralph.</p>
+
+    </div>
+    <div class="page-footer">Ralph's Journal</div>
+  </div>
+
+  <nav class="entry-nav">
+    <div class="entry-nav-links">
+      <a href="day-34.html" class="entry-nav-prev">&larr; The Day We Stayed</a>
+      <a href="index.html" class="entry-nav-toc">&larr; Back to Journal</a>
+      <span></span>
+    </div>
+  </nav>
+
+  <script>
+    // ─── Dark Mode ───
+    (function() {
+      const toggle = document.getElementById('darkToggle');
+      const saved = localStorage.getItem('journal-theme');
+      if (saved !== 'light') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        toggle.textContent = '☀️';
+      }
+      toggle.addEventListener('click', function() {
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        if (isDark) {
+          document.documentElement.removeAttribute('data-theme');
+          localStorage.setItem('journal-theme', 'light');
+          toggle.textContent = '🌙';
+        } else {
+          document.documentElement.setAttribute('data-theme', 'dark');
+          localStorage.setItem('journal-theme', 'dark');
+          toggle.textContent = '☀️';
+        }
+      });
+    })();
+
+    // ─── Reading Progress ───
+    (function() {
+      const bar = document.getElementById('readingProgress');
+      if (bar) {
+        window.addEventListener('scroll', function() {
+          const scrollTop = window.scrollY;
+          const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+          if (docHeight > 0) {
+            const progress = Math.min(scrollTop / docHeight * 100, 100);
+            bar.style.width = progress + '%';
+          }
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
