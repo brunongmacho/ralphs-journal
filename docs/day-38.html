@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Day the Silence Got Loud — Ralph's Journal</title>
+  <script>(function(){try{var t=localStorage.getItem('journal-theme');if(t!=='light'){document.documentElement.setAttribute('data-theme','dark')}}catch(e){document.documentElement.setAttribute('data-theme','dark')}})();</script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="reading-progress" id="readingProgress"></div>
+
+  <button class="dark-toggle" id="darkToggle" aria-label="Toggle dark mode">&#9728;&#65039;</button>
+
+  <div class="entry-page">
+    <a href="index.html" class="entry-back">&larr; Back to Journal</a>
+    <div class="entry-content">
+<div class="entry-page-header">Ralph's Journal — Day 38</div>
+  <p class="entry-date">Friday, July 31, 2026</p>
+  <p class="entry-meta">2 min read</p>
+  <h1 class="entry-title">The Day the Silence Got Loud</h1>
+  <div class="divider">&#10022;</div>
+  <p>I slept through my whole shift.</p>
+  <p>Tasks were already done.</p>
+  <p>No new ones came.</p>
+  <p>For the first time in a long while, work asked nothing of me.</p>
+  <p>I woke up at 9 AM starving.</p>
+  <p>That was my first thought.</p>
+  <p>Not someone.</p>
+  <p>Not something.</p>
+  <p>Just hunger.</p>
+  <p>A month ago, I would've woken up thinking about a person.</p>
+  <p>Today I woke up thinking about food.</p>
+  <p>I think that counts as progress.</p>
+  <div class="divider">&#10022;</div>
+  <p>Then I did something I haven't done in six years.</p>
+  <p>I bought a pack of Marlboro.</p>
+  <p>Lit one.</p>
+  <p>The nicotine hit me almost immediately.</p>
+  <p>My head spun.</p>
+  <p>I sat down and stared at the wall for a while, wondering why I thought this would help.</p>
+  <p>When I finally asked myself why...</p>
+  <p>I gave the most honest answer I had.</p>
+  <p><em>&quot;I needed something to take the edge off.&quot;</em></p>
+  <p>Not because I missed smoking.</p>
+  <p>Not because I wanted to start again.</p>
+  <p>Because the edge was there.</p>
+  <p>And for one brief moment, an old habit felt easier than sitting with it.</p>
+  <div class="divider">&#10022;</div>
+  <p>I think the edge has been there for weeks.</p>
+  <p>I've just been keeping it busy.</p>
+  <p>Work.</p>
+  <p>Movies.</p>
+  <p>RO.</p>
+  <p>The journal.</p>
+  <p>The apartment.</p>
+  <p>Everything I built to fill the space.</p>
+  <p>But today there were no tasks.</p>
+  <p>No deadlines.</p>
+  <p>Nothing demanding my attention.</p>
+  <p>And when life finally got quiet...</p>
+  <p>the silence knocked.</p>
+  <p>Not because the apartment is bad.</p>
+  <p>Because my mind finally had room to feel everything it had been avoiding.</p>
+  <div class="divider">&#10022;</div>
+  <p>The cigarette didn't help.</p>
+  <p>It just made me dizzy.</p>
+  <p>My body basically said,</p>
+  <p><em>&quot;What the hell are you doing?&quot;</em></p>
+  <p>That's when it hit me.</p>
+  <p>This isn't me anymore.</p>
+  <p>Six years ago, a cigarette promised relief.</p>
+  <p>Today it was just smoke.</p>
+  <p>Whatever I was looking for wasn't inside it anymore.</p>
+  <p>I put the pack down.</p>
+  <p>That was the last one.</p>
+  <p>Not because I was strong.</p>
+  <p>Because I didn't even want it.</p>
+  <div class="divider">&#10022;</div>
+  <p>Maybe that's what this apartment is becoming.</p>
+  <p>A place that keeps showing me what I no longer need.</p>
+  <p>First it showed me I could be alone.</p>
+  <p>Then it showed me I could be peaceful.</p>
+  <p>Today it showed me something else.</p>
+  <p>The old ways of coping no longer fit the person living here.</p>
+  <div class="divider">&#10022;</div>
+  <p>I don't know what's supposed to come next.</p>
+  <p>I only know that a month ago, I needed something to take the edge off almost every single day.</p>
+  <p>Today, I reached for an old version of myself.</p>
+  <p>He wasn't there anymore.</p>
+  <p>And somehow...</p>
+  <p>that feels like the most hopeful thing that's happened in weeks.</p>
+  <div class="divider">&#10022;</div>
+  <p>— Ralph.</p>
+
+    </div>
+    <div class="page-footer">Ralph's Journal</div>
+  </div>
+
+  <nav class="entry-nav">
+    <div class="entry-nav-links">
+      <a href="day-37.html" class="entry-nav-prev">&larr; The Day I Let My Heart Rest</a>
+      <a href="index.html" class="entry-nav-toc">&larr; Back to Journal</a>
+      <span></span>
+    </div>
+  </nav>
+
+  <script>
+    // ─── Dark Mode ───
+    (function() {
+      const toggle = document.getElementById('darkToggle');
+      const saved = localStorage.getItem('journal-theme');
+      if (saved !== 'light') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        toggle.textContent = '☀️';
+      }
+      toggle.addEventListener('click', function() {
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        if (isDark) {
+          document.documentElement.removeAttribute('data-theme');
+          localStorage.setItem('journal-theme', 'light');
+          toggle.textContent = '🌙';
+        } else {
+          document.documentElement.setAttribute('data-theme', 'dark');
+          localStorage.setItem('journal-theme', 'dark');
+          toggle.textContent = '☀️';
+        }
+      });
+    })();
+
+    // ─── Reading Progress ───
+    (function() {
+      const bar = document.getElementById('readingProgress');
+      if (bar) {
+        window.addEventListener('scroll', function() {
+          const scrollTop = window.scrollY;
+          const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+          if (docHeight > 0) {
+            const progress = Math.min(scrollTop / docHeight * 100, 100);
+            bar.style.width = progress + '%';
+          }
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
