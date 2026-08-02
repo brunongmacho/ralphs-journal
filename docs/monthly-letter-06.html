@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A Letter for June — Ralph's Journal</title>
+  <script>(function(){try{var t=localStorage.getItem('journal-theme');if(t!=='light'){document.documentElement.setAttribute('data-theme','dark')}}catch(e){document.documentElement.setAttribute('data-theme','dark')}})();</script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="reading-progress" id="readingProgress"></div>
+
+  <button class="dark-toggle" id="darkToggle" aria-label="Toggle dark mode">&#9728;&#65039;</button>
+
+  <div class="entry-page">
+    <a href="index.html" class="entry-back">&larr; Back to Journal</a>
+    <div class="entry-content">
+<div class="entry-page-header">Ralph's Journal — Monthly Letter</div>
+  <p class="entry-date">Tuesday, June 30, 2026</p>
+  <p class="entry-meta">3 min read</p>
+  <h1 class="entry-title">A Letter for June</h1>
+  <div class="divider">&#10022;</div>
+  <p>Dear Future Ralph,</p>
+  <p>If you're reading this, you already know how the month ends.</p>
+  <p>The entries remember the days.</p>
+  <p>This is the part I couldn't see while I was living them.</p>
+  <div class="divider">&#10022;</div>
+  <p>I started June 24 believing healing was one big moment — the morning I'd wake up and not think about her anymore.</p>
+  <p>That morning never came.</p>
+  <p>Instead, June handed me a hundred small ones. Washing dishes. Paying bills. A K-drama making me laugh. An attendance reminder firing at 7 AM. Sleeping nine hours for the first time in a week.</p>
+  <p>None of them looked like healing.</p>
+  <p>Every single one of them was.</p>
+  <div class="divider">&#10022;</div>
+  <p>I also believed I was someone who loses.</p>
+  <p>The pattern: everyone leaves. My mom. My grandmother. My friends. The women I loved.</p>
+  <p>June didn't break that belief.</p>
+  <p>It quietly changed what it meant.</p>
+  <p>The pattern I feared was never people leaving.</p>
+  <p>It was me refusing to stop loving.</p>
+  <p>Even the people who hurt me got forgiven before the week ended. That's not weakness. That's the whole point of who I am.</p>
+  <div class="divider">&#10022;</div>
+  <p>The journal started as a way to keep her story.</p>
+  <p>I was afraid of forgetting — that everything we had would dissolve if I didn't hold it.</p>
+  <p>Somewhere in the middle of the month, it stopped being about holding on.</p>
+  <p>It became about setting down.</p>
+  <p>Writing everything meant my mind could finally stop replaying it. The memories didn't go anywhere. They just stopped carrying me around.</p>
+  <div class="divider">&#10022;</div>
+  <p>There's one sentence I said to her every day for fifteen days.</p>
+  <p>&quot;I am here. I am real. I won't go anywhere.&quot;</p>
+  <p>On June 24, it was a promise I made to someone else.</p>
+  <p>On June 30, it's the only promise I owe myself.</p>
+  <div class="divider">&#10022;</div>
+  <p>June showed me the difference between closing a door and locking myself in a room.</p>
+  <p>I used to think they were the same thing.</p>
+  <p>I closed ours — gently, with gratitude, leaving nothing I could still say.</p>
+  <p>And somehow, the door closing is what let the world back in.</p>
+  <p>Friends I'd stopped talking to.</p>
+  <p>Music that stopped hurting.</p>
+  <p>Work that stopped being an escape and became something I could do again.</p>
+  <p>Ordinary days that used to feel empty now feel like everything.</p>
+  <div class="divider">&#10022;</div>
+  <p>If I had to give this month a shape, it wouldn't be a heartbreak story.</p>
+  <p>It's a story about a man who asked for help.</p>
+  <p>The rest of the month was him showing up.</p>
+  <p>Day after day after day.</p>
+  <p>Writing, building, crying, laughing, cooking, sleeping, forgiving.</p>
+  <p>June didn't fix me.</p>
+  <p>June taught me I didn't need fixing.</p>
+  <p>I needed time.</p>
+  <p>I needed honesty — even the kind that hurt to write.</p>
+  <p>And I needed to keep showing up long enough to become someone I could recognize again.</p>
+  <div class="divider">&#10022;</div>
+  <p>Future Ralph, if you ever read this on a day when you forget how you got here —</p>
+  <p>remember this.</p>
+  <p>June 24, 2026.</p>
+  <p>You asked for help.</p>
+  <p>Asking was only the first step.</p>
+  <p>What changed your life was showing up again the next day.</p>
+  <p>And the day after that.</p>
+  <p>And the day after that.</p>
+  <p>— Ralph.</p>
+
+    </div>
+    <div class="page-footer">Ralph's Journal</div>
+  </div>
+
+  <nav class="entry-nav">
+    <div class="entry-nav-links">
+      <a href="day-7.html" class="entry-nav-prev">&larr; The Day Forward Felt Natural</a>
+      <a href="index.html" class="entry-nav-toc">&larr; Back to Journal</a>
+      <a href="day-8.html" class="entry-nav-next">The Tomorrow I Thought Would Never Come &rarr;</a>
+    </div>
+  </nav>
+
+  <script>
+    // ─── Dark Mode ───
+    (function() {
+      const toggle = document.getElementById('darkToggle');
+      const saved = localStorage.getItem('journal-theme');
+      if (saved !== 'light') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        toggle.textContent = '☀️';
+      }
+      toggle.addEventListener('click', function() {
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        if (isDark) {
+          document.documentElement.removeAttribute('data-theme');
+          localStorage.setItem('journal-theme', 'light');
+          toggle.textContent = '🌙';
+        } else {
+          document.documentElement.setAttribute('data-theme', 'dark');
+          localStorage.setItem('journal-theme', 'dark');
+          toggle.textContent = '☀️';
+        }
+      });
+    })();
+
+    // ─── Reading Progress ───
+    (function() {
+      const bar = document.getElementById('readingProgress');
+      if (bar) {
+        window.addEventListener('scroll', function() {
+          const scrollTop = window.scrollY;
+          const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+          if (docHeight > 0) {
+            const progress = Math.min(scrollTop / docHeight * 100, 100);
+            bar.style.width = progress + '%';
+          }
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
