@@ -344,12 +344,14 @@ body {
 
 .letter-list a {
   display: block;
-  font-size: 16px;
+  font-family: Georgia, serif;
+  font-size: 20px;
+  font-style: italic;
   color: var(--text);
   text-decoration: none;
-  padding: 7px 12px;
-  border-left: 3px solid var(--border);
-  margin-bottom: 2px;
+  padding: 10px 14px;
+  border-left: 3px solid var(--letter);
+  margin-bottom: 4px;
   transition: border-color 0.2s, color 0.2s;
 }
 
