@@ -360,6 +360,196 @@ body {
   color: var(--letter);
 }
 
+/* ─── Book Cover ─── */
+.book-cover-wrap {
+  max-width: 660px;
+  margin: 0 auto;
+  padding: 4px 40px 28px;
+  text-align: center;
+}
+
+.book-cover {
+  width: 260px;
+  max-width: 100%;
+  border-radius: 6px;
+  box-shadow: 0 10px 34px var(--shadow);
+}
+
+.book-cover-caption {
+  margin-top: 18px;
+  font-family: Georgia, serif;
+  font-size: 13px;
+  color: var(--gray);
+  line-height: 1.8;
+}
+
+.book-cover-btn {
+  display: block;
+  margin: 0 auto;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: zoom-in;
+  transition: transform 0.25s ease;
+}
+
+.book-cover-btn:hover {
+  transform: scale(1.03);
+}
+
+.book-cover-btn:hover .book-cover {
+  box-shadow: 0 14px 42px var(--shadow);
+}
+
+.book-cover-btn:focus-visible {
+  outline: 2px solid var(--gray);
+  outline-offset: 6px;
+  border-radius: 6px;
+}
+
+.book-cover-hint {
+  margin-top: 10px;
+  font-size: 12px;
+  font-style: italic;
+  color: var(--gray);
+}
+
+@media (max-width: 640px) {
+  .book-cover-wrap {
+    padding: 4px 24px 24px;
+  }
+}
+
+/* ─── Cover Modal ─── */
+.cover-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(8, 10, 14, 0.85);
+  cursor: zoom-out;
+}
+
+.cover-modal.open {
+  display: flex;
+  flex-direction: column;
+}
+
+.cover-modal-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px 16px 8px;
+  flex-shrink: 0;
+}
+
+.cover-modal-btn {
+  width: 38px;
+  height: 38px;
+  border: none;
+  border-radius: 50%;
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 18px;
+  line-height: 1;
+  font-family: inherit;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+  transition: transform 0.2s ease;
+}
+
+.cover-modal-btn:hover {
+  transform: scale(1.08);
+}
+
+.cover-modal-btn:disabled,
+.cover-modal-zoom-label:disabled {
+  opacity: 0.4;
+  cursor: default;
+  transform: none;
+}
+
+.cover-modal-zoom-label {
+  min-width: 64px;
+  height: 38px;
+  padding: 0 10px;
+  border: none;
+  border-radius: 19px;
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 13px;
+  font-family: inherit;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+  transition: transform 0.2s ease;
+}
+
+.cover-modal-zoom-label:hover {
+  transform: scale(1.06);
+}
+
+.cover-modal-scroll {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  display: flex;
+}
+
+.cover-modal-dialog {
+  position: relative;
+  margin: auto;
+  padding: 12px 24px;
+  cursor: default;
+  animation: coverModalIn 0.25s ease;
+}
+
+.cover-modal-zoomed .cover-modal-scroll,
+.cover-modal-zoomed .cover-modal-img {
+  cursor: grab;
+}
+
+.cover-modal-zoomed .cover-modal-img:active {
+  cursor: grabbing;
+}
+
+@keyframes coverModalIn {
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.cover-modal-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.55);
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.cover-modal-caption {
+  flex-shrink: 0;
+  padding: 10px 16px 18px;
+  font-family: Georgia, serif;
+  font-size: 14px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.88);
+  line-height: 1.7;
+}
+
+@media (max-width: 640px) {
+  .cover-modal-dialog {
+    padding: 8px 12px;
+  }
+}
+
 /* ─── Footer ─── */
 .journal-footer {
   max-width: 660px;

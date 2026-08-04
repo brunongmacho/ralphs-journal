@@ -28,9 +28,30 @@
   <div class="journal" id="top">
     <header class="journal-header">
       <h1 class="journal-title">Ralph's Journal</h1>
-      <p class="journal-subtitle">Just Enjoying Ordinary Days</p>
-      <p class="journal-desc">Where ordinary days slowly became enough.</p>
     </header>
+
+    <div class="book-cover-wrap">
+      <button type="button" class="book-cover-btn" id="coverOpen" aria-label="View the book cover">
+        <img src="book-cover.jpg" alt="Just Enjoying Ordinary Days — Where ordinary days slowly became enough" class="book-cover">
+      </button>
+      <p class="book-cover-caption">From all these days...<br>a book grew.</p>
+      <p class="book-cover-hint">Click the cover to look closer.</p>
+    </div>
+
+    <div class="cover-modal" id="coverModal" role="dialog" aria-modal="true" aria-label="Book cover">
+      <div class="cover-modal-toolbar">
+        <button type="button" class="cover-modal-btn" id="coverZoomOut" aria-label="Zoom out">&minus;</button>
+        <button type="button" class="cover-modal-zoom-label" id="coverZoomLabel" aria-label="Reset zoom to fit">100%</button>
+        <button type="button" class="cover-modal-btn" id="coverZoomIn" aria-label="Zoom in">+</button>
+        <button type="button" class="cover-modal-btn" id="coverClose" aria-label="Close">&times;</button>
+      </div>
+      <div class="cover-modal-scroll" id="coverScroll">
+        <div class="cover-modal-dialog">
+          <img src="book-cover-full.jpg" alt="Just Enjoying Ordinary Days — Where ordinary days slowly became enough" class="cover-modal-img" id="coverImg">
+        </div>
+      </div>
+      <p class="cover-modal-caption">Look closely at the open journal.<br>Every book has its first line.</p>
+    </div>
 
     <div class="prelude-entry">
       <span class="prelude-icon">&#128214;</span>
@@ -382,6 +403,7 @@ But I've learned I don't have to solve it alone.</blockquote>
   </div>
 </section>
 
+
   </div>
 
   <footer class="journal-footer">
@@ -411,6 +433,135 @@ But I've learned I don't have to solve it alone.</blockquote>
           localStorage.setItem('journal-theme', 'dark');
           toggle.textContent = '☀️';
         }
+      });
+    })();
+
+    // ─── Book Cover Modal ───
+    (function() {
+      const modal = document.getElementById('coverModal');
+      const scroll = document.getElementById('coverScroll');
+      const img = document.getElementById('coverImg');
+      const openBtn = document.getElementById('coverOpen');
+      const closeBtn = document.getElementById('coverClose');
+      const zoomInBtn = document.getElementById('coverZoomIn');
+      const zoomOutBtn = document.getElementById('coverZoomOut');
+      const zoomLabel = document.getElementById('coverZoomLabel');
+      if (!modal || !scroll || !img || !openBtn || !closeBtn || !zoomInBtn || !zoomOutBtn || !zoomLabel) return;
+
+      const MIN_ZOOM = 1;
+      const MAX_ZOOM = 5;
+      let zoom = 1;
+      let baseWidth = 560;
+      let drag = null;
+      let moved = false;
+
+      function computeBase() {
+        baseWidth = Math.min(560, scroll.clientWidth - 64);
+        if (baseWidth < 200) baseWidth = Math.max(120, scroll.clientWidth - 32);
+      }
+
+      function apply() {
+        img.style.width = Math.round(baseWidth * zoom) + 'px';
+        zoomLabel.textContent = Math.round(zoom * 100) + '%';
+        modal.classList.toggle('zoomed', zoom > 1.01);
+        zoomOutBtn.disabled = zoom <= 1.01;
+        zoomInBtn.disabled = zoom >= MAX_ZOOM - 0.01;
+      }
+
+      function fit() {
+        zoom = 1;
+        apply();
+        requestAnimationFrame(function() {
+          scroll.scrollLeft = (scroll.scrollWidth - scroll.clientWidth) / 2;
+          scroll.scrollTop = (scroll.scrollHeight - scroll.clientHeight) / 2;
+        });
+      }
+
+      function zoomTo(z, cx, cy) {
+        const prev = zoom;
+        zoom = Math.min(MAX_ZOOM, Math.max(MIN_ZOOM, z));
+        if (zoom === prev) return;
+        const rect = img.getBoundingClientRect();
+        const srect = scroll.getBoundingClientRect();
+        const rx = cx !== undefined ? (cx - rect.left) / rect.width : 0.5;
+        const ry = cy !== undefined ? (cy - rect.top) / rect.height : 0.5;
+        const newW = baseWidth * zoom;
+        apply();
+        if (cx !== undefined) {
+          const newH = newW * rect.height / rect.width;
+          scroll.scrollLeft = rx * newW - (cx - srect.left);
+          scroll.scrollTop = ry * newH - (cy - srect.top);
+        }
+      }
+
+      function open() {
+        modal.classList.add('open');
+        document.body.style.overflow = 'hidden';
+        computeBase();
+        fit();
+        closeBtn.focus();
+      }
+
+      function close() {
+        modal.classList.remove('open');
+        document.body.style.overflow = '';
+        openBtn.focus();
+      }
+
+      openBtn.addEventListener('click', open);
+      closeBtn.addEventListener('click', close);
+
+      zoomInBtn.addEventListener('click', function(e) { zoomTo(zoom * 1.3, e.clientX, e.clientY); });
+      zoomOutBtn.addEventListener('click', function(e) { zoomTo(zoom / 1.3, e.clientX, e.clientY); });
+      zoomLabel.addEventListener('click', function() { fit(); });
+
+      img.addEventListener('dblclick', function(e) {
+        if (zoom > 1.01) { fit(); } else { zoomTo(2, e.clientX, e.clientY); }
+      });
+
+      scroll.addEventListener('wheel', function(e) {
+        e.preventDefault();
+        const factor = e.deltaY < 0 ? 1.18 : 1 / 1.18;
+        zoomTo(zoom * factor, e.clientX, e.clientY);
+      }, { passive: false });
+
+      scroll.addEventListener('pointerdown', function(e) {
+        if (e.pointerType === 'mouse' && e.button === 0) {
+          drag = { id: e.pointerId, x: e.clientX, y: e.clientY, sl: scroll.scrollLeft, st: scroll.scrollTop };
+          moved = false;
+          scroll.setPointerCapture(e.pointerId);
+        }
+      });
+
+      scroll.addEventListener('pointermove', function(e) {
+        if (drag && e.pointerId === drag.id) {
+          const dx = e.clientX - drag.x;
+          const dy = e.clientY - drag.y;
+          if (Math.abs(dx) + Math.abs(dy) > 4) moved = true;
+          scroll.scrollLeft = drag.sl - dx;
+          scroll.scrollTop = drag.st - dy;
+        }
+      });
+
+      function endDrag(e) {
+        if (drag && e.pointerId === drag.id) drag = null;
+      }
+      scroll.addEventListener('pointerup', endDrag);
+      scroll.addEventListener('pointercancel', endDrag);
+
+      modal.addEventListener('click', function(e) {
+        if (moved) { moved = false; return; }
+        if (e.target === modal || e.target === scroll) close();
+      });
+
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal.classList.contains('open')) close();
+      });
+
+      window.addEventListener('resize', function() {
+        if (!modal.classList.contains('open')) return;
+        computeBase();
+        apply();
       });
     })();
 
