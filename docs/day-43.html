@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Day I Kept Working — Ralph's Journal</title>
+  <script>(function(){try{var t=localStorage.getItem('journal-theme');if(t!=='light'){document.documentElement.setAttribute('data-theme','dark')}}catch(e){document.documentElement.setAttribute('data-theme','dark')}})();</script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="reading-progress" id="readingProgress"></div>
+
+  <button class="dark-toggle" id="darkToggle" aria-label="Toggle dark mode">&#9728;&#65039;</button>
+
+  <div class="entry-page">
+    <a href="index.html" class="entry-back">&larr; Back to Journal</a>
+    <div class="entry-content">
+<div class="entry-page-header">Ralph's Journal — Day 43</div>
+  <p class="entry-date">Wednesday, August 5, 2026</p>
+  <p class="entry-meta">2 min read</p>
+  <h1 class="entry-title">The Day I Kept Working</h1>
+  <div class="divider">&#10022;</div>
+  <p>I slept after my shift, around 7 AM.</p>
+  <p>When I woke up...</p>
+  <p>the email was already there.</p>
+  <p>Ami.</p>
+  <p>&quot;I'm pausing all work for now while I sort out some serious issues I'm having with Doneverse directly. This isn't about you. You've been kind and put in effort, including staying late to get me the reel. I appreciate that.&quot;</p>
+  <p>She said it plainly.</p>
+  <p>This isn't about you.</p>
+  <p>She didn't have to say that part.</p>
+  <p>But she did.</p>
+  <div class="divider">&#10022;</div>
+  <p>It's disappointing.</p>
+  <p>The reels were finally starting to feel right.</p>
+  <p>I had just begun understanding her voice.</p>
+  <p>And now everything is on pause.</p>
+  <p>I had a founder who was trusting me with her brand.</p>
+  <p>Not because of my work.</p>
+  <p>Because of something on her side of things.</p>
+  <p>That's the realization that held the day together:</p>
+  <p>I can't control it.</p>
+  <div class="divider">&#10022;</div>
+  <p>Pretty sad.</p>
+  <p>I won't pretend it isn't.</p>
+  <p>A month ago, an email like this would've started the spiral.</p>
+  <p>Did I do something wrong?</p>
+  <p>Was I not good enough?</p>
+  <p>Tonight, my first thought was just...</p>
+  <p>I can't control that.</p>
+  <div class="divider">&#10022;</div>
+  <p>So I sent a screenshot to my DSL.</p>
+  <p>Kept the people who assigned me in the loop.</p>
+  <p>No drama.</p>
+  <p>Just facts.</p>
+  <p>Then the day continued.</p>
+  <p>Ragnarok.</p>
+  <p>Dailies.</p>
+  <p>Bopis with rice at 3 in the afternoon.</p>
+  <p><em>Supernatural</em> until night.</p>
+  <p>None of it was avoidance.</p>
+  <p>I just understood there was nothing left to fix today.</p>
+  <div class="divider">&#10022;</div>
+  <p>It's 11 PM.</p>
+  <p>I'll still show up for my shift.</p>
+  <p>That sentence feels small.</p>
+  <p>But it used to be the hardest one I could say.</p>
+  <p>Some versions of me would've spent the night replaying the email.</p>
+  <p>This one drafted a content calendar instead.</p>
+  <p>Because moving forward is easier than standing still.</p>
+  <div class="divider">&#10022;</div>
+  <p>Not because I'm waiting by the door.</p>
+  <p>Because if Ami ever comes back...</p>
+  <p>I'll have something ready to show her.</p>
+  <p>And if she doesn't...</p>
+  <p>it's still not wasted.</p>
+  <p>It's practice.</p>
+  <p>Portfolio material.</p>
+  <p>Proof that I can think ahead.</p>
+  <p>A client can pause.</p>
+  <p>The skill stays with me.</p>
+  <div class="divider">&#10022;</div>
+  <p>Forty-three days ago, my emotional weather depended on one person.</p>
+  <p>Tonight, one email changed my day.</p>
+  <p>But it didn't take away my direction.</p>
+  <p>I'm not chasing.</p>
+  <p>I'm preparing.</p>
+  <p>That's the difference.</p>
+  <p>Clients come.</p>
+  <p>Clients go.</p>
+  <p>But the person I'm becoming...</p>
+  <p>still clocks in tomorrow.</p>
+  <div class="divider">&#10022;</div>
+  <p>— Ralph.</p>
+
+    </div>
+    <div class="page-footer">Ralph's Journal</div>
+  </div>
+
+  <nav class="entry-nav">
+    <div class="entry-nav-links">
+      <a href="day-42.html" class="entry-nav-prev">&larr; The Day the Book Grew a Cover</a>
+      <a href="index.html" class="entry-nav-toc">&larr; Back to Journal</a>
+      <span></span>
+    </div>
+  </nav>
+
+  <script>
+    // ─── Dark Mode ───
+    (function() {
+      const toggle = document.getElementById('darkToggle');
+      const saved = localStorage.getItem('journal-theme');
+      if (saved !== 'light') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        toggle.textContent = '☀️';
+      }
+      toggle.addEventListener('click', function() {
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        if (isDark) {
+          document.documentElement.removeAttribute('data-theme');
+          localStorage.setItem('journal-theme', 'light');
+          toggle.textContent = '🌙';
+        } else {
+          document.documentElement.setAttribute('data-theme', 'dark');
+          localStorage.setItem('journal-theme', 'dark');
+          toggle.textContent = '☀️';
+        }
+      });
+    })();
+
+    // ─── Reading Progress ───
+    (function() {
+      const bar = document.getElementById('readingProgress');
+      if (bar) {
+        window.addEventListener('scroll', function() {
+          const scrollTop = window.scrollY;
+          const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+          if (docHeight > 0) {
+            const progress = Math.min(scrollTop / docHeight * 100, 100);
+            bar.style.width = progress + '%';
+          }
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
