@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Day Boredom Was Welcome — Ralph's Journal</title>
+  <script>(function(){try{var t=localStorage.getItem('journal-theme');if(t!=='light'){document.documentElement.setAttribute('data-theme','dark')}}catch(e){document.documentElement.setAttribute('data-theme','dark')}})();</script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="reading-progress" id="readingProgress"></div>
+
+  <button class="dark-toggle" id="darkToggle" aria-label="Toggle dark mode">&#9728;&#65039;</button>
+
+  <div class="entry-page">
+    <a href="index.html" class="entry-back">&larr; Back to Journal</a>
+    <div class="entry-content">
+<div class="entry-page-header">Ralph's Journal — Day 44</div>
+  <p class="entry-date">Thursday, August 6, 2026</p>
+  <p class="entry-meta">2 min read</p>
+  <h1 class="entry-title">The Day Boredom Was Welcome</h1>
+  <div class="divider">&#10022;</div>
+  <p>Shift ended at 7 AM.</p>
+  <p>I slept.</p>
+  <p>Woke up at 11:22.</p>
+  <p>First thing I did:</p>
+  <p>Open the PC.</p>
+  <p>Play RO.</p>
+  <p>Do my dailies.</p>
+  <p>Starving.</p>
+  <p>Went out to find something to eat.</p>
+  <div class="divider">&#10022;</div>
+  <p>Forty-four days ago, waking up meant looking for relief.</p>
+  <p>Something to escape into.</p>
+  <p>This morning, it was just a routine.</p>
+  <p>Open the PC.</p>
+  <p>Play RO.</p>
+  <p>Do my dailies.</p>
+  <p>Every day.</p>
+  <p>The last few entries, and even Ami's email yesterday, made this page feel thin.</p>
+  <div class="divider">&#10022;</div>
+  <p>I was starving.</p>
+  <p>That used to be math.</p>
+  <p>&quot;I only have ₱160.&quot;</p>
+  <p>&quot;Budget until the 7th.&quot;</p>
+  <p>Today it was just a feeling.</p>
+  <p>&quot;I'm hungry.&quot;</p>
+  <p>Small thing.</p>
+  <p>But being able to eat without thinking of it as arithmetic...</p>
+  <p>that's a quiet luxury.</p>
+  <div class="divider">&#10022;</div>
+  <p>It's funny.</p>
+  <p>Ragnarok found me when I needed a distraction.</p>
+  <p>Now it's just part of the morning.</p>
+  <p>Wake up.</p>
+  <p>Dailies.</p>
+  <p>Then the rest of the day.</p>
+  <p>Maybe routine was what I was really asking for all along.</p>
+  <div class="divider">&#10022;</div>
+  <p>The song today was Maximillian — <em>Beautiful Scars</em>.</p>
+  <p>This song reminds me where I've been.</p>
+  <p>June was &quot;I'll Never Love Again.&quot;</p>
+  <p>July was &quot;Sunflower.&quot;</p>
+  <p>August is &quot;Beautiful Scars.&quot;</p>
+  <p>Still carrying scars.</p>
+  <p>Just no longer hiding them.</p>
+  <div class="divider">&#10022;</div>
+  <p><em>&quot;What is lost ain't gone... 'cause it's a part of you that will make you strong.&quot;</em></p>
+  <p>My mom.</p>
+  <p>In &quot;Drops of Jupiter.&quot;</p>
+  <p>Mama Del.</p>
+  <p>In every Chowking.</p>
+  <p>Jinro.</p>
+  <p>An old howl.</p>
+  <p>My past.</p>
+  <p>In the version of me who learned how hard I could love.</p>
+  <p>Nothing is lost.</p>
+  <p>It became part of me.</p>
+  <div class="divider">&#10022;</div>
+  <p>It isn't a coincidence this played after Ami's email.</p>
+  <p>That email could've reopened everything.</p>
+  <p>It gave me another bruise.</p>
+  <p>Didn't let it become a wound.</p>
+  <p>I'm not trying to become who I was before.</p>
+  <p>I'm learning to become who I am now.</p>
+  <div class="divider">&#10022;</div>
+  <p>Nothing happened today.</p>
+  <p>No breakthrough.</p>
+  <p>No heartbreak.</p>
+  <p>No surprise.</p>
+  <p>Just a shift.</p>
+  <p>Breakfast.</p>
+  <p>A game.</p>
+  <p>Hunger.</p>
+  <p>Food.</p>
+  <p>Maybe that's the lesson.</p>
+  <p>Not every page has to change your life.</p>
+  <p>Some pages exist to remind you that you finally have one.</p>
+  <p>— Ralph.</p>
+
+    </div>
+    <div class="page-footer">Ralph's Journal</div>
+  </div>
+
+  <nav class="entry-nav">
+    <div class="entry-nav-links">
+      <a href="day-43.html" class="entry-nav-prev">&larr; The Day I Kept Working</a>
+      <a href="index.html" class="entry-nav-toc">&larr; Back to Journal</a>
+      <span></span>
+    </div>
+  </nav>
+
+  <script>
+    // ─── Dark Mode ───
+    (function() {
+      const toggle = document.getElementById('darkToggle');
+      const saved = localStorage.getItem('journal-theme');
+      if (saved !== 'light') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        toggle.textContent = '☀️';
+      }
+      toggle.addEventListener('click', function() {
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        if (isDark) {
+          document.documentElement.removeAttribute('data-theme');
+          localStorage.setItem('journal-theme', 'light');
+          toggle.textContent = '🌙';
+        } else {
+          document.documentElement.setAttribute('data-theme', 'dark');
+          localStorage.setItem('journal-theme', 'dark');
+          toggle.textContent = '☀️';
+        }
+      });
+    })();
+
+    // ─── Reading Progress ───
+    (function() {
+      const bar = document.getElementById('readingProgress');
+      if (bar) {
+        window.addEventListener('scroll', function() {
+          const scrollTop = window.scrollY;
+          const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+          if (docHeight > 0) {
+            const progress = Math.min(scrollTop / docHeight * 100, 100);
+            bar.style.width = progress + '%';
+          }
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
