@@ -245,8 +245,9 @@ body {
   color: var(--gray);
   font-style: italic;
   line-height: 1.7;
-  margin-bottom: 32px;
-  padding: 0 4px;
+  margin: 0 0 32px 28px;
+  padding: 0 0 0 18px;
+  border-left: 2px solid color-mix(in srgb, var(--blue) 40%, transparent);
   white-space: pre-line;
 }
 
@@ -1046,9 +1047,23 @@ body {
   text-transform: uppercase;
   color: var(--gray);
   text-align: center;
-  padding-top: 32px;
+  padding-top: 36px;
   margin-top: 48px;
+  position: relative;
   border-top: 1px solid var(--border);
+}
+
+.page-footer::before {
+  content: "✦";
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 13px;
+  letter-spacing: 0;
+  color: var(--blue);
+  background: var(--body-bg);
+  padding: 0 12px;
 }
 
 /* Entry Nav */
