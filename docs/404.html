@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page not found &mdash; Ralph's Journal</title>
+  <meta name="description" content="This page isn't here anymore, but the journal is.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="https://brunongmacho.github.io/ralphs-journal/404.html">
+  <meta name="theme-color" content="#f3eee7">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#17172b">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png">
+  <script>(function(){try{var t=localStorage.getItem('journal-theme');if(t!=='light'){document.documentElement.setAttribute('data-theme','dark')}}catch(e){document.documentElement.setAttribute('data-theme','dark')}})();</script>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..600&display=swap" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <button class="dark-toggle" id="darkToggle" aria-label="Toggle dark mode">&#9728;&#65039;</button>
+  <div class="journal" id="top">
+    <header class="journal-header">
+      <h1 class="journal-title">This page went quiet.</h1>
+      <p class="journal-subtitle">It's not here anymore &mdash; but the journal is.</p>
+    </header>
+    <p class="cover-modal-caption" style="text-align:center; margin-top:4px;">Maybe it was a day that never got written.<br>Or a shortcut that moved.</p>
+    <p style="text-align:center; font-family:'Fraunces', Georgia, 'Times New Roman', serif; font-size:1.25rem; margin:28px 0 40px;">
+      <a href="index.html">Return to the journal &rarr;</a>
+    </p>
+    <footer class="journal-footer">
+      <hr class="footer-line">
+      <p class="footer-text">This journal began as somewhere to put the weight I was carrying.</p>
+      <p class="footer-text">If parts of it felt familiar, I hope you find your way home too.</p>
+      <p style="margin-top: 12px;" class="footer-text">&mdash; Ralph</p>
+    </footer>
+  </div>
+
+  <script>
+    (function() {
+      const toggle = document.getElementById('darkToggle');
+      const saved = localStorage.getItem('journal-theme');
+      if (saved !== 'light') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        toggle.textContent = '\u2600\uFE0F';
+      }
+      toggle.addEventListener('click', function() {
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        if (isDark) {
+          document.documentElement.removeAttribute('data-theme');
+          localStorage.setItem('journal-theme', 'light');
+          toggle.textContent = '\uD83C\uDF19';
+        } else {
+          document.documentElement.setAttribute('data-theme', 'dark');
+          localStorage.setItem('journal-theme', 'dark');
+          toggle.textContent = '\u2600\uFE0F';
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
