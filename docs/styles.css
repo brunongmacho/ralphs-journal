@@ -97,6 +97,24 @@ body {
 }
 
 /* ─── Dark Mode Toggle ─── */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 2000;
+  background: var(--blue);
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 0 0 8px 0;
+  font-family: 'Newsreader', Georgia, 'Times New Roman', serif;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  left: 0;
+}
+
 .dark-toggle {
   position: fixed;
   top: 20px;
@@ -903,6 +921,33 @@ body {
 
 .entry-back:hover {
   color: var(--blue);
+}
+
+.copy-link {
+  display: block;
+  margin: 44px auto 0;
+  padding: 10px 22px;
+  font-family: var(--font-display);
+  font-size: 13.5px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--gray);
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.copy-link:hover {
+  color: var(--blue);
+  border-color: var(--blue);
+  background: var(--hover);
+}
+
+.copy-link.copied {
+  color: var(--blue);
+  border-color: var(--blue);
 }
 
 .entry-header {
