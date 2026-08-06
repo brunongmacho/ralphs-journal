@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://brunongmacho.github.io/ralphs-journal/sitemap.xml
