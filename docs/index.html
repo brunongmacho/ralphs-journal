@@ -857,7 +857,7 @@ I wasn't counting anything.</blockquote>
       });
     })();
 
-    // ─── Floating Nav ───
+    // ─── Floating Nav + Index Accordion (shared state) ───
     (function() {
       var nav = document.getElementById('floatNav');
       var mini = document.getElementById('floatNavMini');
@@ -873,90 +873,121 @@ I wasn't counting anything.</blockquote>
         mini.classList.remove('visible');
       });
 
-      // Year toggle — accordion: manual click toggles; auto-expand handled by Observer
-      var toggles = document.querySelectorAll('.float-nav-year-toggle');
-      toggles.forEach(function(toggle) {
-        var year = toggle.getAttribute('data-year');
-        var months = document.getElementById('months-' + year);
-        toggle.addEventListener('click', function() {
-          var isCurrentlyExpanded = toggle.classList.contains('expanded');
-          // Collapse all years
-          toggles.forEach(function(t) { t.classList.remove('expanded'); });
-          var allMonths = document.querySelectorAll('.float-nav-months');
-          allMonths.forEach(function(m) { m.classList.remove('expanded'); });
-          // Expand only the clicked one if it was collapsed
-          if (!isCurrentlyExpanded) {
-            toggle.classList.add('expanded');
-            if (months) months.classList.add('expanded');
+      var yearSections = Array.prototype.slice.call(document.querySelectorAll('.year-section'));
+      var navYearToggles = Array.prototype.slice.call(document.querySelectorAll('.float-nav-year-toggle'));
+      var navYearMonths = Array.prototype.slice.call(document.querySelectorAll('.float-nav-months'));
+      var navMonthLinks = Array.prototype.slice.call(document.querySelectorAll('.float-nav-month'));
+
+      function setNavYear(year, open) {
+        navYearToggles.forEach(function(t) {
+          var isThis = t.getAttribute('data-year') === year;
+          t.classList.toggle('expanded', open && isThis);
+          t.classList.toggle('active', open && isThis);
+        });
+        navYearMonths.forEach(function(m) {
+          m.classList.toggle('expanded', open && m.id === 'months-' + year);
+        });
+      }
+
+      function openBodyYear(year) {
+        var target = null;
+        yearSections.forEach(function(s) {
+          var isThis = s.getAttribute('data-year') === year;
+          s.classList.toggle('open', isThis);
+          var toggle = s.querySelector('.year-toggle');
+          if (toggle) toggle.setAttribute('aria-expanded', isThis ? 'true' : 'false');
+          if (isThis) target = s;
+        });
+        setNavYear(year, true);
+        return target;
+      }
+
+      function closeBodyYear(year) {
+        yearSections.forEach(function(s) {
+          if (s.getAttribute('data-year') === year) {
+            s.classList.remove('open');
+            var toggle = s.querySelector('.year-toggle');
+            if (toggle) toggle.setAttribute('aria-expanded', 'false');
           }
+        });
+        setNavYear(year, false);
+      }
+
+      function openBodyMonth(key) {
+        var card = document.getElementById('month-' + key);
+        if (!card) return;
+        var year = card.getAttribute('data-year');
+        var sec = document.getElementById('year-' + year);
+        if (sec && !sec.classList.contains('open')) {
+          openBodyYear(year);
+        }
+        var siblings = sec ? sec.querySelectorAll('.month-card') : [];
+        Array.prototype.slice.call(siblings).forEach(function(c) {
+          if (c !== card) {
+            c.classList.remove('open');
+            var t = c.querySelector('.month-toggle');
+            if (t) t.setAttribute('aria-expanded', 'false');
+          }
+        });
+        card.classList.add('open');
+        var toggle = card.querySelector('.month-toggle');
+        if (toggle) toggle.setAttribute('aria-expanded', 'true');
+        navMonthLinks.forEach(function(l) {
+          l.classList.toggle('active', l.getAttribute('href') === '#month-' + key);
+        });
+      }
+
+      function closeBodyMonth(key) {
+        var card = document.getElementById('month-' + key);
+        if (!card) return;
+        card.classList.remove('open');
+        var toggle = card.querySelector('.month-toggle');
+        if (toggle) toggle.setAttribute('aria-expanded', 'false');
+        navMonthLinks.forEach(function(l) {
+          l.classList.toggle('active', false);
+        });
+      }
+
+      document.querySelectorAll('.year-toggle').forEach(function(toggle) {
+        toggle.addEventListener('click', function() {
+          var sec = toggle.closest('.year-section');
+          var year = sec.getAttribute('data-year');
+          if (sec.classList.contains('open')) closeBodyYear(year);
+          else openBodyYear(year);
         });
       });
 
-      // Scroll-based active year + month — reliable, no observer timing issues
-      var yearSections = document.querySelectorAll('.year-section');
-      var monthHeadings = document.querySelectorAll('[id^="month-"]');
-      var navItems = document.querySelectorAll('.float-nav-item');
-      var yearToggles = document.querySelectorAll('.float-nav-year-toggle');
-      var monthLinks = document.querySelectorAll('.float-nav-month');
+      document.querySelectorAll('.month-toggle').forEach(function(toggle) {
+        toggle.addEventListener('click', function() {
+          var card = toggle.closest('.month-card');
+          var key = card.getAttribute('data-month');
+          if (card.classList.contains('open')) closeBodyMonth(key);
+          else openBodyMonth(key);
+        });
+      });
 
-      function updateNavSpy() {
-        // Find closest month heading to viewport top
-        if (monthHeadings.length > 0 && monthLinks.length > 0) {
-          var bestMonth = null;
-          var bestDist = Infinity;
-          for (var i = 0; i < monthHeadings.length; i++) {
-            var h = monthHeadings[i];
-            var rect = h.getBoundingClientRect();
-            var dist = Math.abs(rect.top);
-            if (dist < bestDist) {
-              bestDist = dist;
-              bestMonth = h;
-            }
-          }
-          if (bestMonth) {
-            var targetHref = '#' + bestMonth.id;
-            monthLinks.forEach(function(link) {
-              link.classList.toggle('active', link.getAttribute('href') === targetHref);
-            });
-          }
-        }
+      navYearToggles.forEach(function(toggle) {
+        toggle.addEventListener('click', function() {
+          var year = toggle.getAttribute('data-year');
+          var sec = document.getElementById('year-' + year);
+          if (sec && sec.classList.contains('open')) closeBodyYear(year);
+          else openBodyYear(year);
+        });
+      });
 
-        // Find closest year section to viewport top → auto-expand + highlight
-        if (yearSections.length > 0) {
-          var bestYearSection = null;
-          var bestYearDist = Infinity;
-          for (var i = 0; i < yearSections.length; i++) {
-            var s = yearSections[i];
-            var rect = s.getBoundingClientRect();
-            var dist = Math.abs(rect.top);
-            if (dist < bestYearDist) {
-              bestYearDist = dist;
-              bestYearSection = s;
-            }
-          }
-          if (bestYearSection) {
-            var id = bestYearSection.id;
-            navItems.forEach(function(item) {
-              item.classList.toggle('active', item.getAttribute('href') === '#' + id);
-            });
-            var activeYear = id.replace('year-', '');
-            yearToggles.forEach(function(t) {
-              var isActiveYear = t.getAttribute('data-year') === activeYear;
-              t.classList.toggle('active', isActiveYear);
-              var monthsEl = document.getElementById('months-' + t.getAttribute('data-year'));
-              if (isActiveYear) {
-                t.classList.add('expanded');
-                if (monthsEl) monthsEl.classList.add('expanded');
-              } else {
-                t.classList.remove('expanded');
-                if (monthsEl) monthsEl.classList.remove('expanded');
-              }
-            });
-          }
-        }
-      }
-      window.addEventListener('scroll', updateNavSpy);
-      updateNavSpy();
+      navMonthLinks.forEach(function(link) {
+        link.addEventListener('click', function() {
+          var href = link.getAttribute('href');
+          if (!href || href.indexOf('#month-') !== 0) return;
+          openBodyMonth(href.slice('#month-'.length));
+        });
+      });
+
+      // Initial sync: nav mirrors the server-rendered body open state
+      yearSections.forEach(function(s) {
+        var year = s.getAttribute('data-year');
+        setNavYear(year, s.classList.contains('open'));
+      });
     })();
   </script>
 </body>
