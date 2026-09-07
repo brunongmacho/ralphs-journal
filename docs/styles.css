@@ -269,6 +269,106 @@ body {
   white-space: pre-line;
 }
 
+/* ─── Index Accordion (Year → Month → Entries) ─── */
+.year-toggle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 14px 0;
+  border: none;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  background: none;
+  cursor: pointer;
+  font-family: var(--font-display);
+  font-size: 19px;
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: 0.02em;
+  text-align: left;
+  transition: color 0.2s;
+}
+
+.year-toggle:hover {
+  color: var(--blue);
+}
+
+.acc-chev {
+  display: inline-block;
+  width: 12px;
+  font-size: 9px;
+  color: var(--gray);
+  transition: transform 0.2s ease;
+  transform: rotate(0deg);
+  flex-shrink: 0;
+}
+
+.year-toggle[aria-expanded="true"] .acc-chev,
+.month-toggle[aria-expanded="true"] .acc-chev {
+  transform: rotate(90deg);
+}
+
+.year-months {
+  display: none;
+  padding: 16px 0 0 10px;
+}
+
+.year-section.open .year-months {
+  display: block;
+}
+
+.month-card {
+  margin-bottom: 12px;
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--border);
+  border-radius: 8px;
+  background: var(--paper);
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+
+.month-card.open {
+  border-left-color: var(--blue);
+}
+
+.month-toggle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 12px 16px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--blue);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: left;
+  transition: color 0.2s, background 0.2s;
+}
+
+.month-toggle:hover {
+  background: var(--hover);
+  color: var(--ink);
+}
+
+.month-card.open .month-toggle {
+  color: var(--ink);
+}
+
+.month-body {
+  display: none;
+  padding: 8px 18px 18px;
+}
+
+.month-card.open .month-body {
+  display: block;
+}
+
 /* ─── Weeks ─── */
 .week-section {
   margin-bottom: 28px;
@@ -1202,6 +1302,9 @@ p {
 @media print {
   .float-nav, .float-nav-mini, .dark-toggle, .reading-progress, .entry-nav {
     display: none !important;
+  }
+  .year-months, .month-body {
+    display: block !important;
   }
   body {
     background: #ffffff;
