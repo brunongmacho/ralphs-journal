@@ -686,7 +686,12 @@ I wasn't counting anything.</blockquote>
           <div class="day-group">
           <p class="day-group-date">Monday • September 7, 2026</p>
           <ul class="day-list">
-            <li><a href="day-76.html"><span class="entry-label">Day 76</span>The Day I Didn't Sleep</a></li>
+            <li><a href="day-76.html"><span class="entry-label">Day 76</span>The Day I Didn't Sleep</a></li>          </ul>
+          </div>
+          <div class="day-group">
+          <p class="day-group-date">Tuesday • September 8, 2026</p>
+          <ul class="day-list">
+            <li><a href="day-77.html"><span class="entry-label">Day 77</span>The Day I Barely Existed Between Sleeps</a></li>
           </ul>
           </div>
         </div>
@@ -916,7 +921,7 @@ I wasn't counting anything.</blockquote>
       function openBodyMonth(key) {
         var card = document.getElementById('month-' + key);
         if (!card) return;
-        var year = card.getAttribute('data-year');
+        var year = key.split('-')[0];
         var sec = document.getElementById('year-' + year);
         if (sec && !sec.classList.contains('open')) {
           openBodyYear(year);
@@ -963,6 +968,7 @@ I wasn't counting anything.</blockquote>
           var key = card.getAttribute('data-month');
           if (card.classList.contains('open')) closeBodyMonth(key);
           else openBodyMonth(key);
+          card.scrollIntoView({ behavior: 'smooth', block: 'start' });
         });
       });
 
