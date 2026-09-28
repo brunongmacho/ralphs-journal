@@ -83,9 +83,25 @@ body {
 @media (max-width: 640px) {
   body { background: var(--body-bg); }
   .journal { padding: 40px 24px 24px; box-shadow: none; min-height: auto; }
-  .prelude-entry { gap: 12px; }
-  .prelude-icon { width: 24px; font-size: 20px; }
+  .prelude-entry {
+    position: relative;
+    gap: 12px;
+    margin-bottom: 16px;
+    padding: 14px 16px;
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--blue);
+    border-radius: 10px;
+    background: var(--paper);
+    box-shadow: 0 1px 4px var(--shadow);
+  }
+  .prelude-entry:hover { border-color: var(--blue); }
   .prelude-title { font-size: 16px; }
+  .prelude-title::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+  }
+  .prelude-icon { width: 24px; font-size: 20px; }
   .prelude-caption { font-size: 13px; max-width: 100%; }
   .prelude-sep { margin: 4px 0 20px 0; }
 }
@@ -177,6 +193,13 @@ body {
   display: flex;
   gap: 16px;
   margin-bottom: 24px;
+  padding: 10px 14px;
+  border-left: 3px solid var(--border);
+  transition: border-color 0.2s;
+}
+
+.prelude-entry:hover {
+  border-left-color: var(--blue);
 }
 
 .prelude-icon {
@@ -205,7 +228,7 @@ body {
 .prelude-title {
   font-size: 18px;
   font-weight: bold;
-  color: var(--dark);
+  color: var(--text);
   text-decoration: none;
 }
 
@@ -310,12 +333,21 @@ body {
 }
 
 .year-months {
-  display: none;
+  display: grid;
+  grid-template-rows: 0fr;
+  visibility: hidden;
+  transition: grid-template-rows 0.3s ease, visibility 0.3s;
+}
+
+.year-months-inner {
+  min-height: 0;
+  overflow: hidden;
   padding: 16px 0 0 10px;
 }
 
 .year-section.open .year-months {
-  display: block;
+  grid-template-rows: 1fr;
+  visibility: visible;
 }
 
 .month-card {
@@ -361,12 +393,21 @@ body {
 }
 
 .month-body {
-  display: none;
+  display: grid;
+  grid-template-rows: 0fr;
+  visibility: hidden;
+  transition: grid-template-rows 0.3s ease, visibility 0.3s;
+}
+
+.month-body-inner {
+  min-height: 0;
+  overflow: hidden;
   padding: 8px 18px 18px;
 }
 
 .month-card.open .month-body {
-  display: block;
+  grid-template-rows: 1fr;
+  visibility: visible;
 }
 
 /* ─── Weeks ─── */
